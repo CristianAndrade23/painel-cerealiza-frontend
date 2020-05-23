@@ -1,0 +1,56 @@
+<div class="search" id="responsivePesquisaProdutor">
+  <div class="input-group">
+    <h1>Análise de lavouras para comparação</h1>
+    <span class="small">Pesquise pelo nome do produtor:</span><br>
+    <input id="pesquisarProd" autofocus
+           onfocus="value=''"
+           type="text"
+           class="form-control"
+           placeholder="Digite o nome do produtor... "
+           [(ngModel)]="escolha"
+           [typeahead]="produtores"
+           (typeaheadOnSelect)="pesquisaProdutor($event.item)"
+           [typeaheadScrollable]="true"
+           [typeaheadOptionsInScrollableView]="5"
+           typeaheadOptionField="fullName"
+           [typeaheadWaitMs]="5"
+           typeaheadMinLength="0">
+  </div>
+</div>
+
+<br/>
+
+<span *ngIf="this.listaProdutoresSelecionados.length !== 0" class="small">
+  Selecione um produtor para exibir suas lavouras.</span>
+
+<article id="produtoresPesquisados">
+
+   <span
+     id="produtoresSelecionados"
+     class="tag-lavoura"
+     style="cursor: pointer"
+     [class.selecionado]="prodSelecionado.selecionado === true"
+     (click)="produtorSelecionado(prodSelecionado)"
+     *ngFor="let prodSelecionado of listaProdutoresSelecionados;
+              let i = index">{{prodSelecionado.fullName}}
+     <span
+       class="glyphicon glyphicon-trash"
+       (click)="removerProdutor(i, prodSelecionado)">
+     </span>
+
+   </span>
+</article>
+
+<div *ngIf="produtorSemLavouras">
+  <br>
+  O produtor que você selecionou não possui lavouras, selecione outro produtor
+</div>
+
+<div *ngFor="let fazendeiro of analisarProdutor">
+
+  <app-produtor
+    [produtor]="fazendeiro"
+    (atualizaProdutor)="produtorSelecionado($event)">
+  </app-produtor>
+
+</div>

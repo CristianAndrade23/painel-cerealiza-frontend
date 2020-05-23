@@ -1,0 +1,199 @@
+
+<div class="title-planos-a-vencer">
+  <h3><strong>Planos a vencer</strong></h3>
+</div>
+<section>
+  <h3><strong>Lista de planos a vencer</strong></h3><br>
+  <div class="row">
+    <div class="col-lg-3 width-input-busca-produtor">
+      <input class="form-control"
+             type="text"
+             autocomplete="off"
+             aria-label="basic-addon"
+             placeholder="Pesquisar usuário..."
+             [(ngModel)]="filtraPlano"
+             [typeahead]="listaPlanos"
+             [typeaheadScrollable]="true"
+             (typeaheadOnSelect)="pesquisaPlano($event.item)"
+             [typeaheadOptionsInScrollableView]="5"
+             typeaheadOptionField="producer.fullName"
+             [typeaheadWaitMs]="5"
+             typeaheadMinLength="0"
+             [disabled]="carregandoListaGrafico"
+             (keyup)="resetarBusca($event)">
+    </div>
+  </div><br>
+
+  <div *ngIf="mostrarUsuariosPesquisados">
+    <span (click)="resetarBuscaSpan()" style="cursor: pointer; color: #58b957">Resetar busca</span>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12" *ngIf="!carregandoListaGrafico && mostrarUsuariosNaoExpirados">
+      <input (click)="mostrarExpirados()" type="checkbox" style="cursor: pointer;">
+      <span (click)="mostrarExpirados()" style="cursor: pointer;"> Mostrar planos vencidos</span>
+    </div>
+
+    <div class="col-lg-12" *ngIf="!carregandoListaGrafico && mostrarUsuariosExpirados">
+      <input (click)="mostrarNaoExpirados()" type="checkbox" checked style="cursor: pointer;">
+      <span (click)="mostrarNaoExpirados()" style="cursor: pointer;"> Mostrar planos vencidos</span>
+    </div>
+
+  </div>
+</section><br>
+
+<div *ngIf="carregandoListaGrafico" style="margin-top: 20px;">
+  <span>Carregando lista...</span>
+</div>
+
+<div *ngIf="!carregandoListaGrafico">
+  <table *ngIf="mostrarUsuariosNaoExpirados" class="table table-hover" style="margin-top: 15px;">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Data de vencimento</th>
+      <th>Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of usuariosNaoExpiradosPagination;">
+      <td>{{ user.producer.name }} {{user.producer.lastName}}</td>
+      <td [style.color]="user.tempoExpiracao.toString().substring(13, 14) === 'h' ? 'red' : ''">
+        {{ user.endDate[2] }}/{{ user.endDate[1] }}/{{ user.endDate[0] }} - {{ user.tempoExpiracao }}
+      <td>
+        <button (click)="abrirEditar(user, editar)" class="btn btn-default padding-button-edit" style="border: solid 1px darkgrey;  padding: 5px 15px;">
+          <a class="action" title="Editar" style="cursor: pointer;">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: black"></span>
+          </a>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!mostrarUsuariosExpirados && erroMostraraUsuariosAexpirar" class="alert alert-danger">
+    Erro au buscar planos a expirar. <label class="underline-and-bold" (click)="buscaUsuarios()">Tente novamente</label>
+  </div>
+
+  <!--TABELA COM PLANOS EXPIRADOS-->
+  <table *ngIf="mostrarUsuariosExpirados" class="table table-hover" style="margin-top: 15px;">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Data de vencimento</th>
+      <th>Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of usuariosExpiradosPagination;">
+      <td>{{ user.producer.name }} {{user.producer.lastName}}</td>
+      <td style="color: red;">{{ user.endDate[2] }}/{{ user.endDate[1] }}/{{ user.endDate[0] }} - Plano vencido</td>
+      <td>
+        <button (click)="abrirEditar(user, editar)" class="btn btn-default padding-button-edit" style="border: solid 1px darkgrey;  padding: 5px 15px;">
+          <a class="action" title="Editar" style="cursor: pointer;">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: black"></span>
+          </a>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="mostrarUsuariosExpirados && erroMostrarUsuariosExpirados" class="alert alert-danger">
+    Erro au buscar planos expirados. <label class="underline-and-bold"  (click)="getPlanosExpirados()">Tente novamente</label>
+  </div>
+
+  <!--TABELA COM PLANOS PESQUISADOS-->
+  <table *ngIf="mostrarUsuariosPesquisados" class="table table-hover" style="margin-top: 15px;">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Data de vencimento</th>
+      <th>Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of planoPesquisado;">
+      <td>{{ user.producer.name }} {{user.producer.lastName}}</td>
+      <td [style.color]="validaSePlanoVenceu(user.tempoExpiracao) ? 'red' : ''">
+        {{ user.endDate[2] }}/{{ user.endDate[1] }}/{{ user.endDate[0] }} - {{ user.tempoExpiracao }}
+      </td>
+      <td>
+        <button (click)="abrirEditar(user, editar)" class="btn btn-default padding-button-edit" style="border: solid 1px darkgrey; padding: 5px 15px;">
+          <a class="action" title="Editar" style="cursor: pointer;">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: black"></span>
+          </a>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="col-sm-12" style="text-align: center;">
+    <pagination
+      *ngIf="!mostrarUsuariosExpirados"
+      [directionLinks]="true"
+      [totalItems]="listaUsuariosNaoExpirados.length"
+      [(ngModel)]="currentPage"
+      [maxSize]="maxSize"
+      previousText="Anterior"
+      nextText="Próximo"
+      [itemsPerPage]="itemsPerPage"
+      (pageChanged)="mudarPagina($event)">
+    </pagination>
+
+    <pagination
+      *ngIf="mostrarUsuariosExpirados"
+      [directionLinks]="true"
+      [totalItems]="listaUsuariosExpirados.length"
+      [(ngModel)]="currentPageExpirados"
+      [maxSize]="maxSizeExpirados"
+      previousText="Anterior"
+      nextText="Próximo"
+      [itemsPerPage]="itemsPerPageExpirados"
+      (pageChanged)="mudarPaginaExpirados($event)">
+    </pagination>
+  </div>
+</div>
+
+<ng-template #editar>
+  <div class="modal-header" style="background: white; border-radius: 10px">
+    <label class="pull-left" style="background: white; color: black">Editar {{ usuarioEditarObj.producer.name }}</label>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="editarUsuarioRef.hide()">
+      <span style="color: black" aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12" *ngIf="!carregandoPut">
+            <div class="col-sm-6" *ngIf="!carregandoPut">
+              <label>Alterar data de vencimento:</label>
+            </div>
+            <div class="col-sm-6" *ngIf="!carregandoPut">
+              <input [(ngModel)]="endDateEditarFormatForRequest"
+                     [textMask]="{mask: maskData}" class="form-control">
+            </div>
+          </div>
+          <span class="col-sm-12" style="text-align: center" *ngIf="carregandoPut">Carregando alteração...</span>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6" *ngIf="dataFinalInvalida">
+              <span style="color: red">* Data inválida</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 alert alert-danger" *ngIf="erroPutEndDate" style="margin-top: 10px; text-align: center">
+          <span>Erro ao editar</span>
+        </div>
+  </div>
+  <div class="modal-footer" style="text-align: right;">
+    <button class="btn btn-default" style="margin-right: 15px"
+            (click)="editarUsuarioRef.hide()">FECHAR</button>
+    <button (click)="getObjToEdit()" class="btn btn-green">SALVAR</button>
+  </div>
+</ng-template>

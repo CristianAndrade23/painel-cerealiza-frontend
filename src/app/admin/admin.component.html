@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-menu (mudarAbaEvent)="abaPainel = $event"
+              [abaPainel]="abaPainel">
+    </app-menu>
+    <div id="content" class="col-sm-10 col-sm-offset-2">
+
+      <app-inicial
+        *ngIf="abaPainel === 0">
+      </app-inicial>
+
+      <app-lista-usuarios
+        *ngIf="abaPainel === 1">
+      </app-lista-usuarios>
+
+      <app-planos-a-vencer
+      *ngIf="abaPainel === 2">
+      </app-planos-a-vencer>
+
+      <app-analise-lavouras
+        *ngIf="abaPainel === 3">
+      </app-analise-lavouras>
+
+      <app-grupos-comparacao
+        *ngIf="abaPainel === 4">
+      </app-grupos-comparacao>
+
+      <app-email-indicativo
+      *ngIf="abaPainel === 5">
+      </app-email-indicativo>
+
+    </div>
+  </div>
+</div>

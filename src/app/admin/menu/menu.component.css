@@ -1,0 +1,230 @@
+@media screen and (max-width: 991px){
+  .checka-responsivo1{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .checka-responsivo2{
+    visibility: visible;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .checka-responsivo1{
+    visibility: visible;
+  }
+
+  .checka-responsivo2{
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  #mostrar-conteudo{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  #mostrar-conteudo{
+    display: block;
+  }
+}
+
+/*ANTES DE CLICAR NO BOTAO*/
+.navbar-collapse {
+  padding-right: 15px;
+  padding-left: 15px;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+}
+.collapse {
+  display: none;
+}
+
+/*DEPOIS DE CLICAR NO BOTAO*/
+.navbar-collapse.in {
+  overflow-y: auto;
+}
+.collapse.in {
+  display: block;
+}
+
+
+/*OTHER*/
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.navbar-toggle:focus {
+  outline: 0;
+}
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+
+.navbar-collapse.collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+}
+
+
+/*IMPORTANTE*/
+button:hover {
+  background: #3eea5b;
+}
+
+.navbar-toggle .icon-bar{
+  background: #fff;
+}
+
+#sidebar-nav{
+  background: #2a2d34;
+  font-size: 12px;
+}
+.nav li a {
+  text-transform: none;
+}
+
+.sidebar-nav hr{
+  margin: 10px 0;
+  border-top: 1px solid #1d1f23;
+  border-bottom: 1px solid #32363e;
+}
+
+.nav>li>a{
+  background: none;
+  color: white;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover{
+  background: none;
+}
+
+.nav>li>a .glyphicon{
+  background: none;
+  color: white;
+}
+.nav>li>a:focus .glyphicon,
+.nav>li>a:hover .glyphicon{
+  background: none;
+}
+
+.aAtivo{
+  background: none;
+  font-weight: 700;
+  color: white;
+}
+
+.iconeAtivo {
+  color: #3eea5b;
+}
+
+
+@media (min-width: 768px) {
+  #sidebar-nav{
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 9;
+  }
+  .sidebar-nav .navbar .navbar-collapse {
+    /*padding: 0;*/
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    /*float: none;*/
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    /*float: none;*/
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding: 5px 0;
+  }
+  .sidebar-nav .navbar-brand{
+    display: block;
+    padding: 18px 0;
+    margin-bottom: 15px;
+  }
+  .sidebar-nav .navbar-header{
+    display: block;
+  }
+}
+
+/*Pixel 2 XL (deitado)*/
+@media only screen and (width: 823px) and (height: 411px) {
+
+  #sidebar-nav {
+    height: 450px;
+  }
+}
+
+/*Iphone x (deitado)*/
+@media only screen and (width: 812px) and (height: 375px) {
+
+  #sidebar-nav {
+    height: 400px;
+    width: 130px;
+  }
+}
+
+/*Ipad (de pé)*/
+@media only screen and (width: 768px) and (height: 1024px) {
+  #sidebar-nav {
+    width: 129px;
+    height: 1200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-sm-2 {
+    width: 16.6%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .col-sm-2 {
+    width: 11.6%;
+  }
+}
+
+/*@media (min-width: 1000px) {*/
+  /*.ajustar-esquerda {*/
+    /*left: -31px;*/
+  /*}*/
+/*}*/
+
+@media only screen and (min-height: 1920px) and (min-width: 1080px) {
+  .col-sm-2 {
+    width: 11.6%;
+  }
+}
+
+@media only screen and (min-height: 1080px) and (min-width: 1920px) {
+  .col-sm-2 {
+    width: 11.6%;
+  }
+}

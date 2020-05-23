@@ -1,0 +1,834 @@
+.borderless .table td, .borderless .table  th {
+  border: none;
+}
+
+.no-border-side{
+  border-left:0 !important;
+  border-right:0 !important;
+}
+
+.no-radius{
+  border-radius: 0 !important;
+}
+
+h2 .thin-title {
+  font-weight: lighter;
+}
+.custos .table>thead>tr>th{
+  border-color:#000;
+}
+.btn-detail, .btn-detail:hover,.btn-detail:focus{
+  background: transparent;
+  color: #00c859;
+  font-weight: bold;
+  line-height:20px;
+  text-transform:capitalize;
+  padding:0 10px;
+  margin: 0;
+}
+
+.btn-detail:after{
+  content:'';
+  display:inline-block;
+  width:7px;
+  height: 7px;
+  border-left: 2px solid #00c859;
+  border-bottom: 2px solid #00c859;
+  transform: rotate(-45deg);
+  margin-left:5px;
+  margin-bottom: 2px;
+}
+.btn-detalhes, .btn-detalhes:hover,.btn-detalhes:focus{
+  background: transparent;
+  color: #00c859;
+  font-weight: bold;
+  line-height:20px;
+  text-transform:capitalize;
+  padding:0 10px;
+  margin: 0;
+}
+.btn-detalhes:after{
+  content:'';
+  display:inline-block;
+  width:7px;
+  height: 7px;
+  border-left: 2px solid #00c859;
+  border-bottom: 2px solid #00c859;
+  transform: rotate(135deg);
+  margin-left:5px;
+  margin-bottom: 2px;
+}
+
+ul.item-controls li {
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align:bottom;
+  line-height: 25px;
+}
+
+.active{
+  color: #58d657;
+}
+
+div.span{
+  color: #484848;
+}
+
+#divCantoEsquerdo{
+  position: relative;
+  left: 15px;
+}
+
+#divDireita{
+  position: relative;
+  padding-left: 20px;
+  border-left: solid 1px #d8d8d8;
+}
+
+
+
+/*Galaxy S5 (de pé)*/
+@media only screen and (width: 360px) {
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -45px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -70px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -70px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 370px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+
+  .modalAvisoLavourasAptas {
+    top: 0%;
+    max-width: 300px;
+    left: 20px;
+  }
+}
+
+/*Galaxy S5 (deitado)*/
+@media only screen and (width: 640px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 200px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: 20px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    padding-left: 0px;
+    left: 20px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -40px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -40px;
+  }
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 650px;
+
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+
+  }
+}
+
+/*Pixel 2 (de pé)*/
+@media only screen and (width: 411px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -34px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -48px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -48px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 434px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+
+  .modalAvisoLavourasAptas {
+    top: 0%;
+    max-width: 300px;
+    left: 20px;
+  }
+}
+
+/*Pixel 2 (deitado)*/
+@media only screen and (width: 731px) {
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 630px;
+    left: -10px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}
+
+
+/*Pixel 2 XL (de pé)*/
+@media only screen and (width: 411px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -34px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -48px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -48px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 434px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+
+  .modalAvisoLavourasAptas {
+    top: 0%;
+    max-width: 300px;
+    left: 20px;
+  }
+}
+
+/*Pixel 2 XL (deitado)*/
+@media only screen and (width: 823px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 200px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: 33px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    padding-left: 0px;
+    left: 35px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 735px;
+    left: -10px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}
+
+/*Iphone5/SE (de pé)*/
+@media only screen and (width: 320px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -62px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -70px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -70px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 340px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+}
+
+
+
+/*Iphone 5 (deitado)*/
+@media only screen and (width: 568px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 200px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: 3px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    padding-left: 0px;
+    left: 3px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 635px;
+    left: -15px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}
+
+/*Iphone 6/7/8 (de pé)*/
+@media only screen and (width: 375px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -40px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -56px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -56px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 400px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+}
+
+
+
+/*Iphone 6/7/8 (deitado)*/
+@media only screen and (width: 667px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 200px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: 34px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    padding-left: 0px;
+    left: 34px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 717px;
+    left: -15px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}
+
+/*Iphone 6/7/8 Plus (de pé)*/
+@media only screen and (width: 414px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -30px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -56px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -56px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 436px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+}
+
+/*Iphone 6/7/8 Plus (deitado)*/
+@media only screen and (width: 736px) {
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 780px;
+    left: -10px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}
+
+/*Iphone X (de pé)*/
+@media only screen and (width: 375px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 175px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: -40px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    right: 10px;
+    padding-left: 0px;
+    width: 161px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -56px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -56px;
+  }
+
+  #responsiveCantoEsquerdo {
+    width: 315px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    width: 393px;
+  }
+
+  #responsiveCantoDireito {
+    border: none;
+    margin-left: -8px;
+  }
+
+}
+
+/*Iphone x (deitado)*/
+@media only screen and (width: 812px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 200px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: 34px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    padding-left: 0px;
+    left: 34px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 690px;
+    left: -10px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}
+
+/*Ipad (de pé)*/
+@media only screen and (width: 768px) {
+
+  #responsiveLavouraAptaCheck {
+    position: absolute;
+    right: 184px;
+  }
+
+  #responsiveLavouraApta {
+    position: absolute;
+    left: 34px;
+  }
+
+  #responsiveLavouraNaoApta {
+    position: absolute;
+    padding-left: 0px;
+    left: 34px;
+  }
+
+  #responsiveButtonDetalhe {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveButtonDetalheFechar {
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+    left: -15px;
+  }
+
+  #responsiveCantoEsquerdo {
+    position: relative;
+    width: 300px;
+    left: -10px;
+    border: solid white;
+  }
+
+  #responsiveCantoDireitoDiv {
+    position: relative;
+    border: solid white;
+    width: 680px;
+    left: -10px;
+  }
+
+  #responsiveCantoDireito {
+    position: relative;
+    margin-left: -8px;
+    border: solid white;
+  }
+}

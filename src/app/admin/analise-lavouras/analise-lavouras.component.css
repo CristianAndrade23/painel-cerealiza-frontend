@@ -1,0 +1,370 @@
+h1, h2{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.tag-lavoura{
+  width: 70%;
+  padding: 5px;
+  background: #ddd;
+  border-radius: 4px;
+  margin: 15px 0 5px 15px;
+  float: left;
+}
+
+.tag-lavoura .glyphicon{
+  float: right;
+  cursor: pointer;
+}
+
+#pesquisarProd{
+  position: relative;
+  width: 310px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+#blocolavoura{
+  margin: 0px;
+}
+
+#produtoresPesquisados{
+  position: relative;
+  left: -5px;
+  width: 1000px;
+  height: auto;
+  overflow:auto;
+}
+#produtoresSelecionados{
+  width: 310px;
+  margin: 5px;
+}
+
+.selecionado{
+  width: 310px;
+  margin: 5px;
+  color: white;
+  background-color: #5cb85c;
+}
+.selecionadoSmall{
+  width: 40%;
+  color: white;
+  background-color: #5cb85c;
+}
+
+
+/*Galaxy S5 (de pé)*/
+@media only screen and (width: 360px) {
+
+  #produtoresPesquisados {
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow: auto;
+  }
+
+  #responsivePesquisaProdutor {
+    max-width: 315px;
+  }
+}
+
+/*Galaxy S5 (deitado)*/
+@media only screen and (width: 640px) {
+
+  #produtoresPesquisados {
+    max-width: 650px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 300px;
+  }
+}
+
+
+
+/*Pixel 2 (de pé)*/
+@media only screen and (width: 411px) {
+
+  #produtoresPesquisados {
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow: auto;
+  }
+
+  #responsivePesquisaProdutor {
+    max-width: 315px;
+  }
+}
+
+/*Pixel 2 (deitado)*/
+@media only screen and (width: 731px) {
+
+  #produtoresPesquisados {
+    max-width: 700px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 300px;
+  }
+
+}
+
+/*Pixel 2 XL (de pé)*/
+@media only screen and (idth: 411px) {
+
+  #produtoresPesquisados {
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow: auto;
+  }
+
+  #responsivePesquisaProdutor {
+    max-width: 315px;
+  }
+}
+
+/*Pixel 2 XL (deitado)*/
+@media only screen and (width: 823px) {
+
+  #produtoresPesquisados {
+    max-width: 700px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 300px;
+  }
+}
+
+/*Iphone5/SE (de pé)*/
+@media only screen and (width: 320px) {
+  #responsivePesquisaProdutor,
+  #pesquisarProd{
+    max-width: 280px;
+  }
+  #produtoresPesquisados{
+    max-width: 290px;
+  }
+  #produtoresSelecionados{
+    max-width: 280px;
+  }
+}
+
+/*Iphone 5 (deitado)*/
+@media only screen and (width: 568px) {
+
+  #produtoresPesquisados {
+    max-width: 550px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 250px;
+  }
+}
+
+
+/*Iphone 6/7/8 (de pé)*/
+@media only screen and (width: 375px) {
+
+  #produtoresPesquisados {
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow: auto;
+  }
+
+  #responsivePesquisaProdutor {
+    max-width: 315px;
+  }
+}
+
+/*Iphone 6/7/8 (deitado)*/
+@media only screen and (width: 667px) {
+
+  #produtoresPesquisados {
+    max-width: 620px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 300px;
+  }
+}
+
+
+/*Iphone 6/7/8 Plus (de pé)*/
+@media only screen and (width: 414px) {
+  #produtoresPesquisados {
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow: auto;
+  }
+
+  #responsivePesquisaProdutor {
+    max-width: 315px;
+  }
+}
+
+/*Iphone 6/7/8 Plus (deitado)*/
+@media only screen and (width: 736px) {
+
+  #produtoresPesquisados {
+    max-width: 700px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 300px;
+  }
+}
+
+/*Iphone X (de pé)*/
+@media only screen and (width: 375px) {
+
+  #produtoresPesquisados {
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow: auto;
+  }
+
+  #responsivePesquisaProdutor {
+    max-width: 315px;
+  }
+}
+
+/*Iphone x (deitado)*/
+@media only screen and (width: 812px) {
+
+  #produtoresPesquisados {
+    max-width: 700px;
+  }
+
+  #produtoresSelecionados {
+    max-width: 300px;
+  }
+}
+
+
+/*Ipad (de pé)*/
+@media only screen and (width: 768px) {
+
+  #produtoresPesquisados{
+    max-width: 650px;
+  }
+  #produtoresSelecionados{
+    max-width: 300px;
+  }
+}
+
+/*Ipad (deitado)*/
+@media only screen and (width: 1024px) {
+  #sidebar-nav{
+    width: 170px;
+    height: 800px;
+  }
+  #produtoresPesquisados{
+    max-width: 800px;
+  }
+  #produtoresSelecionados{
+    max-width: 300px;
+  }
+
+  #responsiveLavouraAptaCheck{
+    position: absolute;
+    left: 0px;
+  }
+
+  #responsiveLavouraApta{
+    position: absolute;
+    left: 15px;
+    width: 120px;
+    text-align: left;
+  }
+
+  #responsiveLavouraNaoApta{
+    position: absolute;
+    left: 15px;
+    max-width: 200px;
+    text-align: left;
+  }
+
+  #responsiveCantoEsquerdo{
+    margin-left: -13px;
+    width: 230px;
+  }
+
+  #responsiveCantoDireitoDiv{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #divDireita{
+    position: relative;
+    margin-left: 0px;
+    /*padding-left: 0px;*/
+    border: none;
+  }
+}
+
+/*ipadPro (de pé)*/
+@media only screen and (width: 1024px) {
+  #sidebar-nav{
+    width: 170px;
+    height: 1400px;
+  }
+  #produtoresSelecionados{
+    max-width: 300px;
+  }
+  #produtoresPesquisados{
+    max-width: 800px;
+  }
+  #responsiveLavouraAptaCheck{
+    position: absolute;
+    left: 0px;
+  }
+
+  #responsiveLavouraApta{
+    position: absolute;
+    left: 15px;
+    width: 120px;
+    text-align: left;
+  }
+
+  #responsiveLavouraNaoApta{
+    position: absolute;
+    left: 15px;
+    max-width: 200px;
+    text-align: left;
+  }
+
+  #responsiveCantoEsquerdo{
+    margin-left: -13px;
+    width: 230px;
+  }
+
+  #responsiveCantoDireitoDiv{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #divDireita{
+    position: relative;
+    margin-left: 0px;
+    /*padding-left: 0px;*/
+    border: none;
+  }
+}
+
+@media only screen and (width: 1366px) {
+  #sidebar-nav{
+    height: 1100px;
+  }
+}
+

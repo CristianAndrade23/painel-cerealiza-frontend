@@ -1,0 +1,341 @@
+<div class="actions" xmlns="http://www.w3.org/1999/html">
+<h2>Lista de Grupos de Comparação</h2>
+<div class="list">
+
+  <input
+    id="responsivePesquisarGrupo"
+    style="width: 300px;
+      margin-bottom: 15px;
+      margin-top: 15px"
+    type="text"
+    class="form-control"
+    placeholder="Pesquisar grupo..."
+    autocomplete="off"
+    [(ngModel)]="filtraGrupo"
+    [typeahead]="gruposCriados"
+    [typeaheadScrollable]="true"
+    (typeaheadOnSelect)="mostrarGrupo($event.item)"
+    [typeaheadOptionsInScrollableView]="5"
+    typeaheadOptionField="name"
+    [typeaheadWaitMs]="5"
+    typeaheadMinLength="0"
+    (keyup)="resetarBusca($event)">
+
+
+
+  <div class="table-responsive" [ngSwitch]="aba">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Tipo de cultura</th>
+        <th>Ano plantio</th>
+        <th>Ano colheita</th>
+        <th>Lavouras</th>
+        <th>Ação</th>
+      </tr>
+      </thead>
+
+
+
+
+
+      <tbody *ngSwitchCase="'home'">
+      <tr *ngFor="let grupo of gruposPagination" >
+        <td>{{grupo.id}}</td>
+        <td>{{grupo.name}}</td>
+        <td>{{grupo.cultureType}}</td>
+        <td>{{grupo.plantingYear}}</td>
+        <td>{{grupo.harvestYear}}</td>
+        <td>
+          <a title="Editar lavouras do grupo"
+             (click)="modalInserirLavouras(templateProdutor, grupo)"
+             style="cursor: pointer">Lavouras</a>
+        </td>
+        <td>
+          <a
+            class="action"
+            title="Editar grupo"
+            style="cursor: pointer;
+               margin-right: 10px"
+            (click)="modalEditar(editar, grupo)">
+              <span
+                class="glyphicon glyphicon-pencil"
+                aria-hidden="true">
+              </span>
+          </a>
+          <a class="action" title="Excluir grupo" style="cursor: pointer"
+             (click)="modalConfirmaExcluirGrupo(confirmarExcluirGrupo, grupo)">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true">
+              </span>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+
+
+
+
+
+      <tbody *ngSwitchCase="'grupoSelecionado'">
+      <tr *ngFor="let grupo of gruposPesquisados">
+        <td>{{grupo.id}}</td>
+        <td>{{grupo.name}}</td>
+        <td>{{grupo.cultureType}}</td>
+        <td>{{grupo.plantingYear}}</td>
+        <td>{{grupo.harvestYear}}</td>
+        <td>
+          <a  title="Editar lavouras do grupo"
+              (click)="modalInserirLavouras(templateProdutor, grupo)"
+             style="cursor: pointer">Lavouras</a>
+        </td>
+        <td>
+          <a
+            class="action"
+            title="Editar grupo"
+            style="cursor: pointer;
+              margin-right: 10px"
+            (click)="modalEditar(editar, grupo)">
+              <span
+                class="glyphicon glyphicon-pencil"
+                aria-hidden="true"
+               >
+              </span>
+          </a>
+          <a class="action" title="Excluir grupo" style="cursor: pointer"
+             (click)="modalConfirmaExcluirGrupo(confirmarExcluirGrupo, grupo)">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true"
+               >
+              </span>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div *ngSwitchCase="'home'">
+
+
+        <pagination
+                    [directionLinks]="true"
+                    [totalItems]="gruposCriados.length"
+                    [(ngModel)]="currentPage"
+                    [maxSize]="maxSize"
+                    [previousText]="previousText"
+                    [nextText]="nextText"
+                    [itemsPerPage]="itemsPerPage"
+                    (pageChanged)="mudarPagina($event)">
+        </pagination>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+<ng-template #editar>
+  <div class="modal-header" style="padding-bottom: 0">
+    <label class="modal-title pull-left">Editar Grupo - {{atualizarGrupo.name}}</label>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="editarGrupoRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="row" >
+      <div class="col-sm-5" style="padding-bottom: 15px">
+        <label for="name">Nome do grupo</label>
+        <label *ngIf="grupoSemNome || grupoMesmoNome" style="color: red; font-size: small"> *</label>
+
+        <input (keydown.enter)="editarGrupo(editarEsteGrupo.id)"
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="atualizarGrupo.name"
+          [maxlength]="18"
+          name="name">
+      </div>
+
+      <div class="col-sm-5"  style="padding-bottom: 15px">
+        <label for="cultureType">Tipo de cultura</label>
+        <label *ngIf="grupoSemCultura" style="color: red; font-size: small"> *</label>
+        <select
+          [disabled]="grupoNaoPodeEditar"
+          type="text"
+          class="form-control"
+          id="cultureType"
+          name="cultureType"
+          [(ngModel)]="atualizarGrupo.cultureType">
+          <option value="1">Arroz</option>
+          <option value="2">Soja</option>
+          <option value="3">Feijão</option>
+          <option value="5">Trigo</option>
+          <option value="6">Milho</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-5">
+        <label for="plantingYear">Ano de Plantio</label>
+        <label *ngIf="grupoSemAnoPlantio || dataInvalida" style="color: red; font-size: small"> *</label>
+        <input (keydown.enter)="editarGrupo(editarEsteGrupo.id)"
+          appApenasNumeros
+          [disabled]="grupoNaoPodeEditar"
+          type="text"
+          class="form-control"
+          id="plantingYear"
+          [(ngModel)]="atualizarGrupo.plantingYear"
+          name="plantingYear"
+          [maxLength]="4">
+      </div>
+
+      <div class="col-sm-5">
+        <label for="harvestYear">Ano da Colheita</label>
+        <label *ngIf="grupoSemAnoColheita || anoColheitaMaiorQueAnoPlantio"
+               style="color: red; font-size: small"> *</label>
+        <input (keydown.enter)="editarGrupo(editarEsteGrupo.id)"
+          appApenasNumeros
+          [disabled]="grupoNaoPodeEditar"
+          type="text"
+          class="form-control"
+          id="harvestYear"
+          [(ngModel)]="atualizarGrupo.harvestYear"
+          name="harvestYear"
+          [maxLength]="4">
+      </div>
+    </div>
+  </div>
+
+  <div id="responsiveAlertaErro"
+       style="margin-left: 15px; margin-right: 100px; padding: 10px" class="alert alert-danger" role="alert"
+       *ngIf="grupoSemNome || grupoSemCultura || grupoSemAnoPlantio || grupoSemAnoColheita
+       || anoColheitaMaiorQueAnoPlantio || grupoMesmoNome || dataInvalida">
+    <p *ngIf="grupoSemNome || grupoSemAnoColheita || grupoSemCultura || grupoSemAnoPlantio"><strong>Preencher campo obrigatório *</strong></p>
+    <p *ngIf="anoColheitaMaiorQueAnoPlantio"><strong>Ano plantio não pode ser maior que ano de colheita</strong></p>
+    <p *ngIf="dataInvalida"><strong>Ano inválido</strong></p>
+    <p *ngIf="grupoMesmoNome"><strong>Nome do grupo já está sendo utilizado</strong></p>
+  </div>
+
+  <div
+    id="responsiveAviso"
+    *ngIf="grupoNaoPodeEditar"
+    style="margin-left: 15px; margin-right: 100px; padding: 10px"
+    class="alert alert-warning">
+    <p><strong>Este grupo contém lavouras inseridas, portanto, somente seu nome pode ser alterado.</strong></p>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      style="margin-left: 8px"
+      (click)="editarGrupo(editarEsteGrupo.id)">Atualizar
+    </button>
+  </div>
+</ng-template>
+
+
+<ng-template #confirmarExcluirGrupo>
+  <div class="text-center" style="padding: 15px">
+    <label *ngIf="!impossivelExcluirGrupoComlavouras">
+      Deseja mesmo excluir este grupo?
+    </label>
+    <br>
+
+    <button *ngIf="!impossivelExcluirGrupoComlavouras"
+            [disabled]="impossivelExcluirGrupoComlavouras"
+            (click)="confirmarExclusaoDoGrupo()"
+            style="margin-right: 30px">Sim
+    </button>
+
+    <button *ngIf="!impossivelExcluirGrupoComlavouras"
+            (click)="recusarExclusao()">Não
+    </button>
+
+    <label *ngIf="impossivelExcluirGrupoComlavouras">
+      Para poder excluir este grupo, é necessário remover todas as lavouras inseridas nele.
+    </label>
+    <br>
+    <button *ngIf="impossivelExcluirGrupoComlavouras"
+            (click)="recusarExclusao()">Fechar
+    </button>
+
+  </div>
+</ng-template>
+
+
+
+<ng-template #templateProdutor>
+  <div class="modal-header" style="padding-bottom: 0">
+    <label class="modal-title pull-left">Grupo - {{grupo.name}}</label>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="selecionaProdutorRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <label>Pesquise pelo nome do produtor ou lavoura</label>
+        <alert *ngIf="lavouraJaNoGrupo" type="danger">
+          <strong>Essa lavoura já está inserida no grupo.Não é possível inseri-la novamente.</strong>
+        </alert>
+
+        <input
+          [disabled]="grupoNaoPodeEditar"
+          style="margin-top: 5px;"
+          id="focoInput"
+          autofocus
+          onfocus="value=''"
+          type="text"
+          class="form-control"
+          placeholder="Digite o nome do produtor..."
+          [(ngModel)]="selecionaLavoura"
+          [typeahead]="lavourasEProdutores"
+          (typeaheadOnSelect)="inserirLavourasNoGrupo($event.item, grupo)"
+          [typeaheadScrollable]="true"
+          [typeaheadOptionsInScrollableView]="5"
+          typeaheadOptionField="nomeProdutorNomeLavoura"
+          [typeaheadWaitMs]="5"
+          typeaheadMinLength="0">
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="tag-lavoura" id="tagLavouraResponsive" *ngFor="let lavoura of lavourasDoGrupo">
+        <span>{{lavoura.nomeProdutorNomeLavoura}}</span>
+        <span
+          class="glyphicon glyphicon-trash"
+          aria-hidden="true"
+          title="desvincular"
+          (click)="removerLavouraDoGrupo(lavoura, grupo)">
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      (click)="selecionaProdutorRef.hide()">
+      Confirmar</button>
+  </div>
+</ng-template>
+
+
+<ng-template #atualizado>
+  <div class="alert alert-success" style="margin-bottom: 0; text-align: center">
+    <h4 style="margin-bottom: 0; padding: 3px">O grupo <strong>{{atualizarGrupo.name}}</strong> foi atualizado</h4>
+  </div>
+</ng-template>
+
+

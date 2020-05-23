@@ -1,0 +1,178 @@
+<div class="col-xs-4 text-right ">
+  <ul  class="item-controls">
+    <li *ngIf="!desabilitarCheckbox">
+      <input style="cursor: pointer" (click)="check()" type="checkbox">
+
+    <span id="responsiveLavouraApta"> Habilitar</span></li>
+
+    <li id="responsiveButtonDetalhe" *ngIf="!open">
+      <button class="detail btn btn-detail" (click)="mostrarDetalhes()">Detalhes</button></li>
+    <li id="responsiveButtonDetalheFechar" *ngIf="open">
+      <button class="detail btn btn-detalhes" (click)="mostrarDetalhes()">Detalhes</button></li>
+    <br>
+  </ul>
+</div>
+
+<div class="row" *ngIf="open">
+  <br><br>
+  <div class="col-xs-3">
+    <div id="divCantoEsquerdo">
+      <div class="table-responsive borderless" id="responsiveCantoEsquerdo" [ngSwitch]="aba">
+
+        <table class="table  table-striped">
+
+          <tr>
+            <td>Area plantada:</td>
+            <td><strong>{{lavouras.plantedArea}} ha</strong></td>
+          </tr>
+
+          <tr>
+            <td>Tipo de cultura:</td>
+            <td><strong>{{lavouras.cultureType }}</strong></td>
+          </tr>
+
+          <tr >
+            <td>Ano plantio:</td>
+            <td><strong>{{lavouras.plantingYear }}</strong></td>
+          </tr>
+
+          <tr>
+            <td>Ano colheita:</td>
+            <td><strong>{{lavouras.harvestYear }}</strong></td>
+          </tr>
+
+
+          <tr>
+            <td>Produção:</td>
+            <td *ngSwitchCase="'estimado'" ><strong>{{lavouras.estimatedProductionQuantity| currency: 'BRL' }}
+            </strong></td>
+            <td *ngSwitchCase="'efetivo'"><strong>{{lavouras.effectiveProductionQuantity| currency: 'BRL' }}
+            </strong></td>
+          </tr>
+
+
+          <tr>
+            <td>Produtividade:</td>
+            <td *ngSwitchCase="'estimado'"><strong>{{lavouras.estimatedProductivity | currency: 'BRL' }}
+            </strong></td>
+            <td *ngSwitchCase="'efetivo'"><strong>{{lavouras.effectiveProductivity | currency: 'BRL' }}
+            </strong></td>
+          </tr>
+
+
+          <tr>
+            <td>Preço de venda:</td>
+            <td *ngSwitchCase="'estimado'"><strong>{{lavouras.estimatedSalePrice  | currency: 'BRL' }}
+            </strong></td>
+            <td *ngSwitchCase="'efetivo'"><strong>{{lavouras.effectiveSalePrice  | currency: 'BRL' }}
+            </strong></td>
+          </tr>
+
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-9" [ngSwitch]="aba" id="responsiveCantoDireitoDiv">
+    <div id="divDireita">
+      <div class="table-responsive custos" id="responsiveCantoDireito">
+
+        <table class="table  table-striped">
+          <thead>
+          <tr>
+            <th>
+              <div>
+              <span style="cursor: pointer" [class.active]="aba == 'estimado'"
+                    (click)="aba = 'estimado'"> Custos Estimados</span> /
+
+                <span style="cursor: pointer" [class.active]="aba == 'efetivo'"
+                      (click)="aba = 'efetivo'">Custos Efetivos </span>
+              </div></th>
+            <th *ngSwitchCase="'estimado'">Custo estimado</th>
+            <th *ngSwitchCase="'efetivo'">Custo efetivo</th>
+
+            <th>R$/Hectares</th>
+            <th>R$/sc</th>
+          </tr>
+          </thead>
+
+          <tbody>
+
+          <tr>
+            <td><strong>Custos Diretos</strong></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr *ngFor="let custoEstimadoDireto of custoEstimado.directCost">
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoDireto.costName}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoDireto.valueCost | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoDireto.costPerHectare | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoDireto.costPerBags | currency: 'BRL'}}</td>
+          </tr>
+
+          <tr *ngFor="let custoEfetivoDireto of custoEfetivo.directCost">
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoDireto.costName}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoDireto.valueCost | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoDireto.costPerHectare | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoDireto.costPerBags | currency: 'BRL'}}</td>
+          </tr>
+
+
+          <tr>
+            <td><strong>Custos Indiretos</strong></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr *ngFor="let custoEstimadoIndireto of custoEstimado.indirectCost">
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoIndireto.costName}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoIndireto.valueCost | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoIndireto.costPerHectare | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoIndireto.costPerBags | currency: 'BRL'}}</td>
+          </tr>
+
+          <tr *ngFor="let custoEfetivoIndireto of custoEfetivo.indirectCost">
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoIndireto.costName}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoIndireto.valueCost | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoIndireto.costPerHectare | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoIndireto.costPerBags | currency: 'BRL'}}</td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr *ngFor="let custoEstimadoAdministrativo of custoEstimado.administrativeCost">
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoAdministrativo.costName}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoAdministrativo.valueCost | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoAdministrativo.costPerHectare | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'estimado'">{{custoEstimadoAdministrativo.costPerBags | currency: 'BRL'}}</td>
+          </tr>
+
+          <tr *ngFor="let custoEfetivoAdministrativo of custoEfetivo.administrativeCost">
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoAdministrativo.costName}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoAdministrativo.valueCost | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoAdministrativo.costPerHectare | currency: 'BRL'}}</td>
+            <td *ngSwitchCase="'efetivo'">{{custoEfetivoAdministrativo.costPerBags | currency: 'BRL'}}</td>
+          </tr>
+
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+

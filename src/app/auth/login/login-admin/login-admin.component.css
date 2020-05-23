@@ -1,0 +1,542 @@
+.borderless .table td, .borderless .table  th {
+  border: none;
+}
+
+.no-border-side{
+  border-left:0 !important;
+  border-right:0 !important;
+}
+
+.no-radius{
+  border-radius: 0 !important;
+}
+
+h2 .thin-title {
+  font-weight: lighter;
+}
+.custos .table>thead>tr>th{
+  border-color:#000;
+}
+.btn-detail, .btn-detail:hover,.btn-detail:focus{
+  background: transparent;
+  color: #00c859;
+  font-weight: bold;
+  line-height:20px;
+  text-transform:capitalize;
+  padding:0 10px;
+  margin: 0;
+}
+
+.btn-detail:after{
+  content:'';
+  display:inline-block;
+  width:7px;
+  height: 7px;
+  border-left: 2px solid #00c859;
+  border-bottom: 2px solid #00c859;
+  transform: rotate(-45deg);
+  margin-left:5px;
+  margin-bottom: 2px;
+}
+.btn-detalhes, .btn-detalhes:hover,.btn-detalhes:focus{
+  background: transparent;
+  color: #00c859;
+  font-weight: bold;
+  line-height:20px;
+  text-transform:capitalize;
+  padding:0 10px;
+  margin: 0;
+}
+.btn-detalhes:after{
+  content:'';
+  display:inline-block;
+  width:7px;
+  height: 7px;
+  border-left: 2px solid #00c859;
+  border-bottom: 2px solid #00c859;
+  transform: rotate(135deg);
+  margin-left:5px;
+  margin-bottom: 2px;
+}
+
+
+
+ul.head-navigation, ul.item-controls {
+  padding:0;
+}
+
+ul.item-controls {
+  display: inline-block;
+}
+
+.head-navigation li {
+  display: inline-block;
+  margin-right:10px;
+}
+
+ul.item-controls li {
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align:bottom;
+  line-height: 25px;
+}
+
+li.list-group-item {
+  overflow: hidden;
+  max-height: 48px;
+  transition: all 300ms ease;
+
+}
+
+li.list-group-item.open {
+  overflow: hidden;
+  max-height: 1000px;
+  transition: all 300ms ease-in;
+}
+
+
+/* Reset Select */
+.multiple-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #fff;
+  background-image: none;
+}
+/* Custom Select */
+
+.multiple-select select {
+  width: 100%;
+  height: auto;
+  margin: 0  0 0 -7px;
+  color: #fff;
+  cursor: pointer;
+  font-size:16px;
+}
+.multiple-select option:hover {
+  background: #58b957;
+  color:#fff;
+}
+.multiple-select option {
+  color: #444444;
+  background: #fff;
+}
+
+.active{
+  color: #58d657;
+}
+
+div.span{
+  color: #484848;
+}
+
+#pesquisarProd{
+  position: relative;
+  width: 310px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+#blocolavoura{
+  margin: 0px;
+}
+
+#produtoresPesquisados{
+  position: relative;
+  left: -5px;
+  width: 1000px;
+  height: auto;
+  overflow:auto;
+}
+#produtoresSelecionados{
+  width: 310px;
+  margin: 5px;
+}
+
+.selecionado{
+  width: 310px;
+  margin: 5px;
+  color: white;
+  background-color: #5cb85c;
+}
+.selecionadoSmall{
+  width: 40%;
+  color: white;
+  background-color: #5cb85c;
+}
+
+.login{
+  background: #2a2d34;
+  color: #fff;
+}
+
+.login-box{
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #1d1f23;
+  margin: 15% auto;
+  box-shadow: inset 0 0 0 2px #32363e;
+}
+
+.login-box img{
+  margin: 0 auto;
+}
+
+.login label, .login input{
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+.login input{
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  color: #333;
+  font-weight: bold;
+}
+
+.login button{
+  margin: auto;
+}
+
+/*//----------------------------------------------------------------------------------------------------------------------*-
+ */
+
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+h1, h2{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#content{
+  min-height: 100vh;
+}
+
+
+#content a{
+  font-weight: 700;
+  color: #58b957;
+}
+
+#content a:hover{
+  text-decoration: none;
+  color: #3eea5b;
+}
+
+#content a.action{
+  color: #222;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#content a.action:hover{
+  background: #ddd;
+}
+
+select{
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-weight: 100;
+}
+
+button{
+  border: 0;
+  background: #58b957;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+button:hover{
+  background: #3eea5b;
+}
+
+.input-group button{
+  margin: 0;
+}
+
+.modal input{
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.modal select{
+  width: 100%;
+}
+
+.tag-lavoura{
+  width: 70%;
+  padding: 5px;
+  background: #ddd;
+  border-radius: 4px;
+  margin: 15px 0 5px 15px;
+  float: left;
+}
+
+.tag-lavoura .glyphicon{
+  float: right;
+  cursor: pointer;
+}
+
+.list-header{
+  display: block;
+}
+
+.modal-header{
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-footer{
+  padding: 0 15px;
+}
+
+.modal-footer .close-modal{
+  background: #fff;
+  color: #333;
+  border: 1px solid #aaa;
+}
+
+.modal-footer .close-modal:hover{
+  background: #ddd;
+}
+
+.show{
+  float: left;
+  font-weight: 700;
+  margin-right: 15px;
+}
+
+.search{
+  width: 390px;
+}
+
+.list-header{
+  margin-bottom: 30px;
+}
+
+.list-footer{
+  text-align: center;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  bottom: 15px;
+}
+
+.navbar-toggle .icon-bar{
+  background: #fff;
+}
+
+#sidebar-nav{
+  background: #2a2d34;
+  font-size: 12px;
+}
+
+/*.sidebar-nav a{*/
+/*color: #fff;*/
+/*}*/
+
+.sidebar-nav hr{
+  margin: 10px 0;
+  border-top: 1px solid #1d1f23;
+  border-bottom: 1px solid #32363e;
+}
+
+.nav>li>a{
+  background: none;
+  color: white;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover{
+  background: none;
+}
+
+.nav>li>a .glyphicon{
+  background: none;
+  color: white;
+}
+.nav>li>a:focus .glyphicon,
+.nav>li>a:hover .glyphicon{
+  background: none;
+}
+
+.aAtivo{
+  background: none;
+  font-weight: 700;
+  color: white;
+}
+
+.iconeAtivo {
+  color: #3eea5b;
+}
+
+/* estilizando a scrollbar do menu */
+
+#sidebar-nav::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  -webkit-border-radius: 16px;
+}
+
+#sidebar-nav::-webkit-scrollbar-track-piece {
+  background-color: rgba(0,0,0,0.3);
+}
+
+#sidebar-nav::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: #666;
+  -webkit-border-radius: 3px;
+}
+
+#sidebar-nav::-webkit-scrollbar-thumb:horizontal {
+  width: 2px;
+  background-color: #666;
+  -webkit-border-radius: 3px;
+}
+
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  #sidebar-nav{
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 9;
+  }
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding: 5px 0;
+  }
+  .sidebar-nav .navbar-brand{
+    display: block;
+    padding: 18px 0;
+    margin-bottom: 15px;
+  }
+  .sidebar-nav .navbar-header{
+    display: block;
+    float: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar-nav .navbar-brand img{
+    max-width: 150px;
+  }
+}
+
+/*Galaxy S5*/
+@media only screen and (max-width: 500px) {
+
+  #produtoresPesquisados{
+    position: relative;
+    left: -5px;
+    max-width: 320px;
+    height: auto;
+    overflow:auto;
+  }
+
+  #responsivePesquisaProdutor{
+    max-width: 315px;
+  }
+
+  #responsiveBlocoProdutores{
+    max-width: 315px;
+  }
+
+  #responsiveLavouraNaoAptaCheck{
+    position: absolute;
+    left: -45px;
+  }
+
+  #responsiveLavouraAptaCheck{
+    position: absolute;
+    left: -53px;
+  }
+
+  #responsiveLavouraApta{
+    position: absolute;
+    left: -30px;
+  }
+  #responsiveLavouraNaoApta{
+    position: absolute;
+    left: -40px;
+    padding-left: 0px;
+  }
+  #responsiveButtonDetalhe{
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+
+  }
+  #responsiveButtonDetalheFechar{
+    position: relative;
+    top: 35px;
+    margin-bottom: 40px;
+  }
+
+  #responsiveCantoEsquerdo{
+    width: 315px;
+    border: solid white;
+  }
+  #responsiveCantoDireitoDiv{
+    position: relative;
+    width: 355px;
+  }
+  #responsiveCantoDireito{
+    border: none;
+    margin-left: -8px;
+  }
+  #modalResponsiveAvisoLavouraApta{
+    position: absolute;
+    width: 315px;
+
+  }
+
+  .modalAvisoLavourasAptas{
+    top: 40%;
+    max-width: 300px;
+  }
+
+  #tagLavouraResponsive {
+    width: 60%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+}

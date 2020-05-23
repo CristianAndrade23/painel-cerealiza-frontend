@@ -1,0 +1,232 @@
+<div class="header">
+  <h1>E-mail Indicativo</h1>
+  <button style="font-size: 11px;" (click)="modalBuscaLavouras(templateBuscarLavouras)">BUSCAR LAVOURAS APTAS A RECEBER O E-MAIL</button>
+</div>
+
+  <ng-template #templateBuscarLavouras>
+    <div class="modal-header">
+      <label style="padding: 0px; margin: 0px">Buscar Lavouras</label>
+      <button
+        class="close pull-right"
+        aria-label="Close"
+        aria-hidden="true"
+        (click)="modalBuscaLavourasRef.hide()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <form>
+        <div class="row">
+          <label style="padding: 0px 16px;">Pesquisar produtor</label><br>
+          <div class="col-sm-8" >
+            <div class="col-sm-9" style="padding: 0px;">
+              <input style="border-radius: 4px 0px 0px 4px;" type="text" class="form-control" placeholder="Pesquisar por nome do produtor">
+            </div>
+
+            <div class="col-sm-3" style="padding: 0px;">
+              <button class="btn-src-email-indicativo"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+              <label style="color: #57b957; font-size: 14px; padding: 7px 2px;">Rodrigo Silveira Souto</label><br>
+              <label style="padding: 1px 2px;">Lista de Lavouras</label><br>
+              <label style="font-size: 12px; padding: 0px 2px; font-weight: 500; margin-bottom: 7px">Selecione a(s) lavoura(s) apta(s) a receberem o e-mail indicativo</label><br>
+            <div style="max-height: 105px; overflow-y: scroll; white-space: nowrap;">
+              <div class="lav-nao-selecionada"><span style="padding: 0px 10px;">Lav 01 - Soja - 2018 2018</span></div>
+              <div class="lav-selecionada"><span style="padding: 0px 10px;">Lav 02 - Soja - 2018 2019</span></div>
+              <div class="lav-nao-selecionada"><span style="padding: 0px 10px;">Lav 03 - Soja - 2018 2019</span></div>
+              <div class="lav-nao-selecionada"><span style="padding: 0px 10px;">Lav 04 - Soja - 2018 2019</span></div>
+              <div class="lav-selecionada"><span style="padding: 0px 10px;">Lav 05 - Soja - 2018 2019</span></div>
+              <div class="lav-nao-selecionada"><span style="padding: 0px 10px;">Lav 06 - Soja - 2018 2019</span></div>
+              <div class="lav-nao-selecionada"><span style="padding: 0px 10px;">Lav 07 - Soja - 2018 2019</span></div>
+              <div class="lav-nao-selecionada"><span style="padding: 0px 10px;">Lav 08 - Soja - 2018 2019</span></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer" style="padding: 12px 25px;">
+     <div class="row" style="float: right !important;">
+      <button style="margin: 0px 5px;">ADICIONAR</button>
+      <button (click)="modalBuscaLavourasRef.hide()" class="button-close-modal">FECHAR</button>
+    </div>
+    </div>
+  </ng-template>
+
+<div>
+  <h1 style="padding-bottom: 10px;">Lista de lavouras elegidas para receber e-mail</h1>
+
+  <div class="col-sm-8" style="padding: 0px 0px 15px 0px; left: 2px;">
+
+    <span class="col-sm-1" style="font-size: 14px; font-weight: 900; padding: 7px 7px 0px 0px;">Mostrar</span>
+
+    <div class="col-sm-2 padding-div-select">
+      <select class="form-control width-select-responsive">
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option selected>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+      </select>
+    </div>
+
+    <div class="col-sm-8" style="padding-left: 0px;">
+        <div class="col-sm-8" style="padding: 0px;">
+         <input style="border-radius: 4px 0px 0px 4px;" type="text" class="form-control padding-top-input-pesquisa" placeholder="Pesquisar por nome do produtor">
+        </div>
+
+        <div class="col-sm-3" style="padding: 0px;">
+          <button class="btn-src-email-indicativo"><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12 scroll-table" style="padding: 0px 0px 20px 0px;">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Produtor</th>
+        <th scope="col">Lavoura</th>
+        <th scope="col">Tipo de cultura</th>
+        <th scope="col">Data inicio/fim</th>
+        <th scope="col">Ação</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Rodrigo Silveira Souto</td>
+        <td>Lavoura teste 01</td>
+        <td>Soja</td>
+        <td>2018-2019</td>
+        <td><a class="action" style="cursor: pointer">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true">
+              </span>
+        </a></td>
+      </tr>
+      <tr>
+        <td>Rodrigo Silveira Souto</td>
+        <td>Lavoura teste 01</td>
+        <td>Soja</td>
+        <td>2018-2019</td>
+        <td><a class="action" style="cursor: pointer">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true">
+              </span>
+        </a></td>
+      </tr>
+      <tr>
+        <td>Rodrigo Silveira Souto</td>
+        <td>Lavoura teste 01</td>
+        <td>Soja</td>
+        <td>2018-2019</td>
+        <td><a class="action" style="cursor: pointer">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true">
+              </span>
+        </a></td>
+      </tr>
+      <tr>
+        <td>Rodrigo Silveira Souto</td>
+        <td>Lavoura teste 01</td>
+        <td>Soja</td>
+        <td>2018-2019</td>
+        <td><a class="action" style="cursor: pointer">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true">
+              </span>
+        </a></td>
+      </tr>
+      <tr>
+        <td>Rodrigo Silveira Souto</td>
+        <td>Lavoura teste 01</td>
+        <td>Soja</td>
+        <td>2018-2019</td>
+        <td><a class="action" style="cursor: pointer">
+              <span
+                class="glyphicon glyphicon-trash"
+                aria-hidden="true">
+              </span>
+        </a></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="col-lg-4">
+  </div>
+
+  <div class="col-lg-4">
+
+
+    <pagination totalItems="30"></pagination>
+
+  </div>
+
+  <div class="col-lg-4">
+  </div><br>
+
+  <div class="col-sm-12" style="padding: 0px;">
+    <h1 style="padding-bottom: 10px;">Estrutura do e-mail</h1>
+
+    <div class="col-sm-3 padding-responsive" style="padding: 0px;">
+      <span style="font-size: 15px; font-weight: 900;">Título</span>
+      <input style="margin-top: 5px;" class="form-control" placeholder="Digite o título...">
+    </div>
+
+    <div class="col-sm-2 padding-responsive">
+      <span style="font-size: 15px; font-weight: 900;">Valor Dólar</span>
+      <input style="margin-top: 5px;" class="form-control" placeholder="Digite o valor em reais">
+    </div>
+
+    <div class="col-sm-2 padding-responsive">
+      <span style="font-size: 15px; font-weight: 900;">Valor Buchel</span>
+      <input style="margin-top: 5px;" class="form-control" placeholder="Digite o valor em reais">
+    </div>
+
+    <div class="col-sm-2 padding-responsive">
+      <span style="font-size: 15px; font-weight: 900;">Prêmio</span>
+      <input style="margin-top: 5px;" class="form-control" placeholder="Digite os pontos">
+    </div>
+
+    <div class="col-sm-2 padding-responsive">
+      <span style="font-size: 15px; font-weight: 900;">Imagem</span>
+      <button class="form-control"
+        style="background: #cccccc; color: black; outline: none; margin: 0px; margin-top: 5px; font-weight: 600;">SELECIONAR</button>
+      <small>Clique para fazer upload da imagem...</small>
+    </div>
+  </div>
+
+  <div class="col-lg-12 padding-responsive" style="padding: 0px;">
+      <span style="font-size: 15px; font-weight: 900;">Texto Mercado</span><br>
+      <div class="col-sm-5" style="padding: 0px 25px 0px 0px;">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Digite o texto..." style="margin-top: 5px"></textarea>
+      </div>
+
+      <div class="col-sm-4" style="padding: 0px;">
+        <button style="margin: 5px 0px;">ESTRUTURAR E-MAIL</button>
+      </div>
+  </div>
+
+  <div class="col-sm-12" style="padding: 25px 0px">
+    <h1>Histórico de e-mails</h1>
+
+    <div class="col-sm-5" style="padding: 0px;">
+      <button>EXIBIR HISTÓRICO</button>
+    </div>
+  </div>
+  </div>

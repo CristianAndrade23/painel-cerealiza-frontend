@@ -1,0 +1,108 @@
+{
+  "HEADER": {
+    "HOME": "HOME",
+    "ESTIMATED_COSTS": "ESTIMATED COSTS",
+    "EFFECTIVE_COSTS": "EFFECTIVE COSTS",
+    "SALES": {
+      "SALES": "SALES",
+      "SALES_PLAN": "SALES PLAN",
+      "EFFECTIVE_SALES": "EFFECTIVE SALES"
+    },
+    "REPORTS": {
+      "REPORTS": "REPORTS",
+      "OVERVIEW": "OVERVIEW",
+      "PROFIT_AND_LOSS": "PROFIT AND LOSS",
+      "COMPARISON": "COMPARISON"
+    },
+    "CONFIGURATION": {
+      "CONFIGURATION": "CONFIGURATION",
+      "USER_DETAILS": "USER DETAILS",
+      "PROPERTY_AND_FARMING_DETAILS": "PROPERTY AND FARMING DETAILS",
+      "CONTRACTED_PLAN": "CONTRACTED PLAN",
+      "EXIT": "EXIT"
+    }
+  },
+  "COSTS": {
+    "ESTIMATED": {
+      "COSTS": "ESTIMATED COSTS",
+      "RESULTS": "Estimated Results"
+    },
+    "EFFECTIVE": {
+      "COSTS": "EFFECTIVE COSTS",
+      "RESULTS": "Effective Results"
+    },
+    "FARMING": "Farming",
+    "PLANTED_AREA": "Planted area (ha)",
+    "PRODUCTION": "Production (bags)",
+    "SALE_PRICE": "Sale price",
+    "BILLING": "Billing",
+    "TOTAL_COST": "Total cost",
+    "RESULT": "Result",
+    "PT_EQ_PRODUCTION": "Equilibrium point (bags)",
+    "PRICING_SCALE": "Pricing scale (R$)"
+  },
+  "HOME": {
+    "WELCOME": "WELCOME",
+    "HELLO": "Hello",
+    "CONTRACTED_PLAN": "Contracted Plan",
+    "EXPIRING_DATE": "Expiring date",
+    "CHOOSE_FARMING": "Choose your farming below",
+    "YOUR_FARMING": "Your farming",
+    "YOUR_PROPERTY": "Your property",
+    "SELECTED": "selected",
+    "ADD_FARMING": "Click here to add a new farming",
+    "CHECKLIST": {
+      "TITLE": "See what you haven't done yet",
+      "TITLE2": "Click and see what you haven't done yet",
+      "ESTIMATED_COSTS": "Inserting your estimated costs",
+      "SALES_PLAN": "Planning your sales by month",
+      "EFFECTIVE_COSTS": "Inserting your effective production, sale price and costs",
+      "EFFECTIVE_SALES": "Registering your effective sales"
+    }
+  },
+  "NEW_FARMING": {
+    "TITLE": "Choose a property and insert the new farming's details",
+    "PROPERTY": {
+      "LABEL": "Choose a property",
+      "PLACEHOLDER": "Click to choose a propery"
+    },
+    "NAME": {
+      "LABEL": "Farming's name",
+      "PLACEHOLDER": "Farming's name",
+      "TITLE": "Type here your farming's name"
+    },
+    "CULTURE": {
+      "LABEL": "Culture type",
+      "PLACEHOLDER": "Culture type",
+      "TITLE": "Click here to choose your farming's culture type"
+    },
+    "AREA": {
+      "LABEL": "Planted area (ha)",
+      "PLACEHOLDER": "Planted area (ha)",
+      "TITLE": "Type here your planted area in hectares"
+    },
+    "DATE": {
+      "START_LABEL": "Start date (planting)",
+      "END_LABEL": "End date (selling)",
+      "PLACEHOLDER": "dd/mm/yyyy",
+      "TITLE": "Click here to choose the date or write it down if you prefer"
+    },
+    "HARVEST": "Harvest",
+    "PRODUCTION": {
+      "LABEL": "Estimated production",
+      "PLACEHOLDER": "How many bags are you expecting?",
+      "TIP": "Typing example: 50.000",
+      "TITLE": "Type here the quantity of bags that you are expecting to harvest"
+    },
+    "PRICE": {
+      "LABEL": "Estimated price",
+      "PLACEHOLDER": "What is your average selling price?",
+      "TIP": "The sale price must be entered with it's liquid value, free of taxes",
+      "TITLE": "Type here the average selling price that you are expecting to sell each bag. You must enter the liquid value, free of taxes"
+    },
+    "SAVE": "SAVE FARMING"
+  },
+  "EDIT": "EDIT",
+  "CANCEL": "CANCEL",
+  "SAVE": "SAVE"
+}

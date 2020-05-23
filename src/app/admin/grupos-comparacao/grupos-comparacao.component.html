@@ -1,0 +1,116 @@
+<div class="header">
+  <h1>Gerenciamento de Grupos de Comparação</h1>
+  <button (click)="modalCriarGrupo(templateCriarGrupo)">Criar grupo</button>
+</div>
+
+<app-lista-grupos
+  [recebeGruposCriados]="listaGrupos"
+  [recebeNumPagina]="currentPage"
+  (emiteGruposCriados)="recebeEvento($event)">
+</app-lista-grupos>
+
+
+
+<ng-template #templateCriarGrupo>
+  <div class="modal-header" style="padding-bottom: 0">
+    <label class="modal-title pull-left"> Criar grupo de comparação</label>
+    <button
+      class="close pull-right"
+      aria-label="Close"
+      aria-hidden="true"
+      (click)="criarGrupoRef.hide()">
+      &times;</button>
+  </div>
+
+  <div class="modal-body">
+
+    <form #form="ngForm" class="needs-validation" novalidate>
+      <div class="row">
+      <div class="col-sm-5" style="padding-bottom: 15px">
+        <label>Nome do grupo</label>
+        <em *ngIf="inputNomeGrupo.valid && !campoInvalido && !grupoMesmoNome" class="fa fa-check" style="color: #28a745; padding-left: 5px"></em>
+        <em *ngIf="campoInvalido || grupoMesmoNome" class="fa fa-remove" style="color: red; padding-left: 5px"></em>
+        <input (keydown.enter)="criarGrupos()"
+               type="text" class="form-control"
+               name="nomeDoGrupo" ngModel
+               [class.invalid]="inputNomeGrupo.invalid && (inputNomeGrupo.dirty || inputNomeGrupo.touched) || campoInvalido || grupoMesmoNome"
+               [class.valid]="inputNomeGrupo.valid && (inputNomeGrupo.dirty || inputNomeGrupo.touched) && !campoInvalido && !grupoMesmoNome"
+               maxlength="20" size="20" autocomplete="off"
+                required #inputNomeGrupo="ngModel"
+               [(ngModel)]="novoGrupo.name">
+        <div *ngIf="campoInvalido || grupoMesmoNome" class="invalid-feedback">
+          <span *ngIf="campoInvalido"> Nome inválido</span>
+          <span *ngIf="grupoMesmoNome"> Nome do grupo já utilizado</span>
+        </div>
+      </div>
+
+      <div class="col-sm-5" style="padding-bottom: 15px">
+        <label>Tipo de cultura</label>
+        <em *ngIf="inputTipoDeCultura.valid" class="fa fa-check" style="color: #28a745; padding-left: 5px"></em>
+        <select type="text" class="form-control"
+                [class.invalid]="inputTipoDeCultura.invalid && (inputTipoDeCultura.dirty || inputTipoDeCultura.touched)"
+                [class.valid]="inputTipoDeCultura.valid && (inputTipoDeCultura.dirty || inputTipoDeCultura.touched)"
+                ngModel name="tipoDeCultura" #inputTipoDeCultura="ngModel"
+                required [(ngModel)]="novoGrupo.cultureType">
+          <option [value]="1">Arroz</option>
+          <option [value]="2">Soja</option>
+          <option [value]="3">Feijão</option>
+          <option [value]="5">Trigo</option>
+          <option [value]="6">Milho</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <label>Ano plantio</label>
+        <em *ngIf="inputAnoPlantio.valid && !dataInvalida" class="fa fa-check" style="color: #28a745; padding-left: 5px"></em>
+        <em *ngIf="dataInvalida" class="fa fa-remove" style="color: red; padding-left: 5px"></em>
+        <input (keydown.enter)="criarGrupos()"
+               type="text" class="form-control"
+               [class.invalid]="inputAnoPlantio.invalid && (inputAnoPlantio.dirty || inputAnoPlantio.touched) || dataInvalida"
+               [class.valid]="inputAnoPlantio.valid && (inputAnoPlantio.dirty || inputAnoPlantio.touched) && !dataInvalida"
+               appOnlyFournumbers name="anoPlantio" #inputAnoPlantio="ngModel"
+               required [(ngModel)]="novoGrupo.plantingYear" minlength="4" [maxLength]="4">
+
+        <div *ngIf="dataInvalida" class="invalid-feedback">
+          <span> Ano de plantio deve ser acima de 2018</span>
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <label>Ano colheita</label>
+        <em *ngIf="inputAnoColheita.valid && !anoColheitaMaiorQueAnoPlantio" class="fa fa-check" style="color: #28a745; padding-left: 5px"></em>
+        <em *ngIf="anoColheitaMaiorQueAnoPlantio" class="fa fa-remove" style="color: red; padding-left: 5px"></em>
+        <input (keydown.enter)="criarGrupos()"
+               [class.invalid]="inputAnoColheita.invalid && (inputAnoColheita.dirty || inputAnoColheita.touched) || anoColheitaMaiorQueAnoPlantio"
+               [class.valid]="inputAnoColheita.valid && (inputAnoColheita.dirty || inputAnoColheita.touched) && !anoColheitaMaiorQueAnoPlantio"
+               type="text" class="form-control"
+               appOnlyFournumbers minlength="4"
+          name="anoColheita" required #inputAnoColheita="ngModel"
+          [(ngModel)]="novoGrupo.harvestYear"
+          [maxLength]="4">
+
+        <div *ngIf="anoColheitaMaiorQueAnoPlantio" class="invalid-feedback">
+          <span> Ano de colheita deve ser maior ou igual ao ano de plantio</span>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  </div>
+
+  <div class="modal-footer">
+    <button [disabled]="form.invalid || campoInvalido || grupoMesmoNome || dataInvalida || anoColheitaMaiorQueAnoPlantio"
+            [style.cursor]="form.invalid || campoInvalido || grupoMesmoNome || dataInvalida || anoColheitaMaiorQueAnoPlantio ? 'not-allowed' : 'pointer'"
+            (click)="criarGrupos()">Criar</button>
+  </div>
+</ng-template>
+
+
+<ng-template #aviso>
+  <div class="alert alert-success" style="margin-bottom: 0; text-align: center">
+    <h4 style="margin-bottom: 0; padding: 3px"><strong>{{novoGrupo.name}}</strong> foi criado!</h4>
+  </div>
+</ng-template>

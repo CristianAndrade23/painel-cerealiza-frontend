@@ -1,0 +1,108 @@
+{
+  "HEADER": {
+    "HOME": "PRINCIPAL",
+    "ESTIMATED_COSTS": "CUSTOS ESTIMADOS",
+    "EFFECTIVE_COSTS": "CUSTOS EFETIVOS",
+    "SALES": {
+      "SALES": "VENDAS",
+      "SALES_PLAN": "PLANO DE VENDAS",
+      "EFFECTIVE_SALES": "VENDAS EFETIVAS"
+    },
+    "REPORTS": {
+      "REPORTS": "RELATÓRIOS",
+      "OVERVIEW": "VISÃO GERAL",
+      "PROFIT_AND_LOSS": "DRE",
+      "COMPARISON": "COMPARAÇÃO"
+    },
+    "CONFIGURATION": {
+      "CONFIGURATION": "CONFIGURAÇÕES",
+      "USER_DETAILS": "DADOS CADASTRAIS",
+      "PROPERTY_AND_FARMING_DETAILS": "DADOS DE PROPRIEDADE E LAVOURA",
+      "CONTRACTED_PLAN": "PLANO CONTRATADO",
+      "EXIT": "SAIR"
+    }
+  },
+  "COSTS": {
+    "ESTIMATED": {
+      "COSTS": "CUSTOS ESTIMADOS",
+      "RESULTS": "Resultados Estimados"
+    },
+    "EFFECTIVE": {
+      "COSTS": "CUSTOS EFETIVOS",
+      "RESULTS": "Resultados Efetivos"
+    },
+    "FARMING": "Lavoura",
+    "PLANTED_AREA": "Área plantada (ha)",
+    "PRODUCTION": "Produção (scs)",
+    "SALE_PRICE": "Preço de venda",
+    "BILLING": "Faturamento",
+    "TOTAL_COST": "Custo total",
+    "RESULT": "Resultado",
+    "PT_EQ_PRODUCTION": "Produção - Pto. EQ (scs)",
+    "PRICING_SCALE": "Escala de preços (R$)"
+  },
+  "HOME": {
+    "WELCOME": "BEM-VINDO",
+    "HELLO": "Olá",
+    "CONTRACTED_PLAN": "Plano Contratado",
+    "EXPIRING_DATE": "Vencimento",
+    "CHOOSE_FARMING": "Selecione a lavoura desejada",
+    "YOUR_FARMING": "Sua lavoura",
+    "YOUR_PROPERTY": "Sua propriedade",
+    "SELECTED": "selecionada",
+    "ADD_FARMING": "Clique aqui para adicionar uma nova lavoura",
+    "CHECKLIST": {
+      "TITLE": "Veja o que ainda precisa ser feito",
+      "TITLE2": "Clique e veja o que ainda precisa ser feito",
+      "ESTIMATED_COSTS": "Preencher os custos estimados",
+      "SALES_PLAN": "Planejar suas vendas por mês",
+      "EFFECTIVE_COSTS": "Preencher produção, preço de venda e custos efetivos",
+      "EFFECTIVE_SALES": "Cadastrar suas vendas realizadas"
+    }
+  },
+  "NEW_FARMING": {
+    "TITLE": "Selecione uma propriedade e insira os dados na nova lavoura",
+    "PROPERTY": {
+      "LABEL": "Selecione uma propriedade",
+      "PLACEHOLDER": "Clique para selecionar uma propriedade"
+    },
+    "NAME": {
+      "LABEL": "Nome da lavoura",
+      "PLACEHOLDER": "Nome da lavoura",
+      "TITLE": "Digite aqui o nome de sua lavoura"
+    },
+    "CULTURE": {
+      "LABEL": "Tipo de cultura",
+      "PLACEHOLDER": "Tipo de cultura",
+      "TITLE": "Clique para selecionar o tipo de cultura"
+    },
+    "AREA": {
+      "LABEL": "Área plantada (ha)",
+      "PLACEHOLDER": "Área plantada (ha)",
+      "TITLE": "Digite sua área plantada em hectares"
+    },
+    "DATE": {
+      "START_LABEL": "Data inicial (plantio)",
+      "END_LABEL": "Data final (venda)",
+      "PLACEHOLDER": "dd/mm/aaaa",
+      "TITLE": "Clique para selecionar a data ou digite se preferir"
+    },
+    "HARVEST": "Safra",
+    "PRODUCTION": {
+      "LABEL": "Produção estimada",
+      "PLACEHOLDER": "Quantas sacas espera colher?",
+      "TIP": "Exemplo de digitação: 50.000",
+      "TITLE": "Digite aqui a quantidade de sacas que você espera colher nesta lavoura"
+    },
+    "PRICE": {
+      "LABEL": "Preço estimado",
+      "PLACEHOLDER": "A que preço médio espera vender?",
+      "TIP": "O preço de venda deve ser preenchido já com o valor líquido, livre de impostos",
+      "TITLE": "Digite aqui o preço médio que você espera vender cada saca. Insira o valor líquido, livre de impostos"
+    },
+    "SAVE": "SALVAR LAVOURA"
+  },
+  "EDIT": "EDITAR",
+  "CANCEL": "CANCELAR",
+  "SAVE": "SALVAR"
+}

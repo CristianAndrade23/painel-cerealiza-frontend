@@ -1,0 +1,72 @@
+image: johnpapa/angular-cli
+
+#before_script:
+# - apk update
+# - apk add --no-cache bash git openssh openssh-client zip unzip
+# - eval $(ssh-agent -s)
+# - echo "$SSH_PRIVATE_KEY" | ssh-add - > /dev/null
+# - mkdir -p ~/.ssh
+# - chmod 700 ~/.ssh
+# - ssh -o StrictHostKeyChecking=no root@$HOST_DEPLOY 'exit'
+# - npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
+
+before_script:
+  - apk update
+  - apk add --no-cache bash git openssh openssh-client zip unzip
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
+
+stages:
+# - build_and_test
+ - deploy_homolog
+ - deploy_prod
+
+#build_and_test:
+# stage: build_and_test
+# artifacts:
+#  untracked: true
+# script:
+#  - ng build --prod
+
+deploy_homolog:
+ stage: deploy_homolog
+# dependencies:
+#  - build_and_test
+ script:
+  - ls
+  - ssh -o StrictHostKeyChecking=no $HOST_HOMOLOG 'exit'
+  - ng build --prod --configuration=homolog
+  - ssh root@$HOST_HOMOLOG 'rm -rf /root/cerealiza-front/*'
+  - ssh root@$HOST_HOMOLOG 'mkdir -p /root/cerealiza-front/'
+  - ls -l
+  - ls -la && ls -la /ng-app/
+  - zip -r cerealiza-front.zip DockerFile dist nginx.conf
+  - scp cerealiza-front.zip root@$HOST_HOMOLOG:/root/cerealiza-front/
+  - ssh root@$HOST_HOMOLOG 'unzip /root/cerealiza-front/cerealiza-front.zip -d /root/cerealiza-front/'
+  - ssh root@$HOST_HOMOLOG 'docker system prune -f -a'
+  - ssh root@$HOST_HOMOLOG 'cd /root/cerealiza-front/ && docker build -f DockerFile -t cerealiza-front/angular .'
+  - ssh root@$HOST_HOMOLOG 'docker stop cerealiza-front || true && docker rm cerealiza-front || true && docker run --name cerealiza-front -d -p 81:81 --restart always cerealiza-front/angular'
+  - echo 'Deploy homolog finished'
+
+deploy_prod:
+ stage: deploy_prod
+ when: manual
+# dependencies:
+#  - build_and_test
+ script:
+  - ng build --prod --configuration=production
+  - ssh -o StrictHostKeyChecking=no $HOST_DEPLOY 'exit'
+  - ssh root@$HOST_DEPLOY 'rm -rf /root/cerealiza-front/*'
+  - ssh root@$HOST_DEPLOY 'mkdir -p /root/cerealiza-front/'
+  - ls -l
+  - ls -la && ls -la /ng-app/
+  - zip -r cerealiza-front.zip DockerFile dist nginx.conf
+  - scp cerealiza-front.zip root@$HOST_DEPLOY:/root/cerealiza-front/
+  - ssh root@$HOST_DEPLOY 'unzip /root/cerealiza-front/cerealiza-front.zip -d /root/cerealiza-front/'
+  - ssh root@$HOST_DEPLOY 'docker system prune -f -a'
+  - ssh root@$HOST_DEPLOY 'cd /root/cerealiza-front/ && docker build -f DockerFile -t cerealiza-front/angular .'
+  - ssh root@$HOST_DEPLOY 'docker stop cerealiza-front || true && docker rm cerealiza-front || true && docker run --name cerealiza-front -d -p 81:81 --restart always cerealiza-front/angular'
+  - echo 'Deploy prod finished'

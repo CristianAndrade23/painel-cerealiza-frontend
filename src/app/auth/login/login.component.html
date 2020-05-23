@@ -1,0 +1,137 @@
+<div id="site">
+  <div id="topo">
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-responsivo" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="/assets/img/cerealiza-logo.png" alt="" class="img-responsive">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- .navbar -->
+  </div>
+  <!-- #topo -->
+
+  <div id="conteudo">
+    <ngx-loading [show]="loading === true" [config]="{fullScreenBackdrop: true}"></ngx-loading>
+    <div class="banner-top banner-bem-vindo">
+      <span class="x-bold">Bem-vindo</span>
+    </div>
+    <!-- .banner-top -->
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="box-login formclass">
+            <p>
+              <input type="text" name="username" placeholder="Email"
+                     [(ngModel)]="loginContract.username"
+                     (keyup.enter)="login()">
+            </p>
+            <p>
+              <input type="password" name="password" placeholder="Senha"
+                     [(ngModel)]="loginContract.password"
+                     (keyup.enter)="login()">
+            </p>
+            <div *ngIf="invalidCredentials === true" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Erro:</span>
+              Credenciais inválidas. Por favor, tente novamente.
+            </div>
+            <!--<p [hidden]="!invalidCredentials"-->
+               <!--[style.color]=" invalidCredentials? 'red' : 'black'">-->
+              <!--*Credenciais inválidas. Por favor, tente novamente.</p>-->
+            <div *ngIf="credentialsRequired === true" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Erro:</span>
+              Favor preencher os campos <b>usuário</b> e <b>senha</b>.
+            </div>
+            <!--<p [hidden]="!credentialsRequired"-->
+               <!--[style.color]=" credentialsRequired? 'red' : 'black'">-->
+              <!--*Favor preencher os campos "usuário" e "senha".</p>-->
+
+            <div *ngIf="erroNoLogin" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Erro:</span>
+             <b> Credenciais inválidas</b>
+            </div>
+
+            <p>
+              <button class="btn-red" (click)="login()">Entrar</button>
+              <a class="forget-pass" style="cursor: pointer" (click)="openModal(forgotPassword)">Esqueceu a senha?</a>
+            </p>
+          </div>
+
+          <ng-template #forgotPassword>
+            <div class="modal-header bg-azul text-center">
+              <h3> Esqueceu sua senha? </h3>
+            </div>
+            <div class="modal-body formclass">
+                <input [(ngModel)]="recoverPassObj.email" (keydown.enter)="resetPass()" [disabled]="passwordSent"
+                       placeholder="Digite aqui seu email para enviarmos uma nova senha provisória.">
+            </div>
+
+            <div style="text-align: center; width: 96%;
+    border-left-width: 1px;
+    margin-left: 12px;" *ngIf="passwordSent" class="alert alert-success" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Erro:</span>
+              <b>Senha enviada!</b> Em alguns instantes você receberá sua nova senha provisória em seu email.
+            </div>
+
+            <div *ngIf="emailNaoCadastrado" class="alert alert-danger" role="alert" style="margin: 16px">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Erro:</span>
+              <b>  Este email não está cadastrado no sistema</b>
+            </div>
+
+            <div class="text-center">
+              <button *ngIf="passwordSent" (click)="okEsqueceuSenha()" class="btn btn-blue">OK</button>
+              <button *ngIf="!passwordSent" (click)="modalRef.hide()" class="btn btn-default">Cancelar</button>
+              <button *ngIf="!passwordSent" (click)="resetPass()" class="btn btn-blue">Receber senha</button>
+            </div><br>
+          </ng-template>
+
+          <!--<ng-template #emailNaoCadastrado>-->
+            <!--<div class="modal-header">-->
+              <!--<h4 class="modal-title pull-left">Email não encontrado!</h4>-->
+              <!--<button type="button" class="close pull-right" aria-label="Close" (click)="modalAvisoEmailRef.hide()">-->
+                <!--<span aria-hidden="true">&times;</span>-->
+              <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+              <!--Esse email não está cadastrado no sistema.<br>-->
+             <!--</div>-->
+          <!--</ng-template>-->
+
+          <!--<ng-template #erroNoLogin>-->
+            <!--<div class="modal-header">-->
+              <!--<h4 class="modal-title pull-center">Credenciais inválidas</h4>-->
+              <!--<button type="button" class="close pull-right" aria-label="Close" (click)="modalAvisoEmailRef.hide()">-->
+                <!--<span aria-hidden="true">&times;</span>-->
+              <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+              <!--O email e/ou senha inseridos não correspondem a nenhuma conta cadastrada.-->
+              <!--<br>-->
+            <!--</div>-->
+          <!--</ng-template>-->
+
+
+        </div>
+      </div>
+
+    </div>
+    <!-- .container -->
+
+  <!-- #conteudo -->
+</div>
+<div class="push"></div>
+</div>

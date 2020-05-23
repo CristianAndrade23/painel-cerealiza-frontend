@@ -1,0 +1,137 @@
+<div id="sidebar-nav" class="col-sm-2">
+  <div class="sidebar-nav">
+
+    <div class="navbar" role="navigation">
+
+    <span (click)="logStuff()" class="navbar-brand">
+      <img [src]="logoPainel" alt="" class="img-responsive">
+        </span>
+
+
+      <div class="navbar-header">
+
+        <button (click)="abrirMenu('mostrar-conteudo')" type="button" class="navbar-toggle col-sm-2"
+                data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+
+        </button>
+
+
+      </div> <!-- .navbar-header -->
+
+      <div class="navbar-collapse collapse sidebar-navbar-collapse">
+<!--        MENU NAO RESPONSIVO-->
+        <ul class="nav navbar-nav checka-responsivo1">
+          <!--<hr>-->
+          <!--<li class="active"><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; Usuários</a></li>-->
+          <!--<li><a href="#"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> &nbsp; Controle de acesso</a></li>-->
+          <!--<hr>-->
+          <!--<li><a><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> &nbsp; Custos tipos de cultura</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> &nbsp; Encargos</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> &nbsp; Encargos tipos de cultura</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> &nbsp; Tipos de cultura</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp; Tipos de custo</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp; Tipos de receita</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> &nbsp; Unidades de medida</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp; Entidades</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> &nbsp; Profissionais</a></li>-->
+
+          <li>
+            <a style="cursor: pointer;" (click)="mudarAba(1)">
+            <span [style.color]="abaPainel === 1 ? 'lime' : 'white'"
+                  class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              &nbsp; {{ abaPainel !== 1 ? 'Usuários' : '' }}
+              <strong *ngIf="abaPainel === 1">Usuários</strong>
+            </a>
+          </li><br>
+
+
+          <li style="padding-bottom: 10px; border-bottom: solid 1px #34373e; width: 100%;"><a style="cursor: pointer" (click)="mudarAba(2)">
+            <span [style.color]="abaPainel === 2 ? 'lime' : 'white'"
+                  class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+            &nbsp; {{abaPainel !== 2 ? 'Planos a vencer' : '' }}<strong *ngIf="abaPainel === 2">Planos a vencer</strong></a></li><br>
+
+          <li style="padding-top: 10px;"><a style="cursor: pointer" (click)="mudarAba(3)">
+            <span [style.color]="abaPainel === 3 ? 'lime' : 'white'" class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+            &nbsp; {{ abaPainel !== 3 ? 'Análise de lavouras' : '' }}<strong *ngIf="abaPainel === 3">Análise de lavouras</strong> </a></li><br>
+
+          <li style="padding-bottom: 10px; border-bottom: solid 1px #34373e; width: 100%;"><a style="cursor: pointer" (click)="mudarAba(4)">
+            <span [style.color]="abaPainel === 4 ? 'lime' : 'white'" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            &nbsp; {{ abaPainel !== 4 ? 'Grupos de comparação' : '' }}<strong *ngIf="abaPainel === 4">Grupos de comparação</strong></a></li><br>
+
+          <!--          <li><a style="cursor: pointer" (click)="mudarAba(5)">-->
+<!--            <span [style.color]="abaPainel === 5 ? 'lime' : 'white'" class="glyphicon glyphicon-envelope" aria-hidden="true"></span>-->
+<!--            &nbsp; {{ abaPainel !== 5 ? 'E-mail Indicativo' : '' }}<strong *ngIf="abaPainel === 5">E-mail Indicativo</strong></a></li><br><br><br><br>-->
+
+
+          <!--<li><a><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> &nbsp; Planos a vencer</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> &nbsp; Suporte</a></li>-->
+
+          <li style="padding-top: 10px"><a (mouseover)="desejaSair = true" (mouseleave)="desejaSair = false" style="cursor: pointer" (click)="logout()">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+            &nbsp;{{ !desejaSair ? 'Sair' : '' }}<strong *ngIf="desejaSair">Sair</strong></a></li>
+        </ul>
+
+<!--        MENU RESPONIVO-->
+        <ul id="mostrar-conteudo" class="nav navbar-nav checka-responsivo2">
+          <!--<hr>-->
+          <!--<li class="active"><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; Usuários</a></li>-->
+          <!--<li><a href="#"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> &nbsp; Controle de acesso</a></li>-->
+          <!--<hr>-->
+          <!--<li><a><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> &nbsp; Custos tipos de cultura</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> &nbsp; Encargos</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> &nbsp; Encargos tipos de cultura</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> &nbsp; Tipos de cultura</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp; Tipos de custo</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> &nbsp; Tipos de receita</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> &nbsp; Unidades de medida</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp; Entidades</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> &nbsp; Profissionais</a></li>-->
+
+          <li (click)="abrirMenu('mostrar-conteudo')" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <a style="cursor: pointer;" (click)="mudarAba(1)">
+            <span [style.color]="abaPainel === 1 ? 'lime' : 'white'"
+                  class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              &nbsp; {{ abaPainel !== 1 ? 'Usuários' : '' }}
+              <strong *ngIf="abaPainel === 1">Usuários</strong>
+            </a>
+          </li><br>
+
+          <li (click)="abrirMenu('mostrar-conteudo')" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <a style="cursor: pointer" (click)="mudarAba(2)">
+              <span [style.color]="abaPainel === 2 ? 'lime' : 'white'" class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+              &nbsp; {{ abaPainel !== 2 ? 'Planos a vencer' : '' }}<strong *ngIf="abaPainel === 2">Planos a vencer</strong> </a></li><br>
+
+          <li (click)="abrirMenu('mostrar-conteudo')" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <a style="cursor: pointer" (click)="mudarAba(3)">
+            <span [style.color]="abaPainel === 3 ? 'lime' : 'white'" class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+            &nbsp; {{ abaPainel !== 3 ? 'Análise de lavouras' : '' }}<strong *ngIf="abaPainel === 3">Análise de lavouras</strong> </a></li><br>
+
+          <li (click)="abrirMenu('mostrar-conteudo')" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <a style="cursor: pointer" (click)="mudarAba(4)">
+            <span [style.color]="abaPainel === 4 ? 'lime' : 'white'" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            &nbsp; {{ abaPainel !== 4 ? 'Grupos de comparação' : '' }}<strong *ngIf="abaPainel === 4">Grupos de comparação</strong></a></li><br><br>
+
+<!--          <li (click)="abrirMenu('mostrar-conteudo')" data-toggle="collapse" data-target=".sidebar-navbar-collapse">-->
+<!--            <a style="cursor: pointer" (click)="mudarAba(5)">-->
+<!--            <span [style.color]="abaPainel === 5 ? 'lime' : 'white'" class="glyphicon glyphicon-envelope" aria-hidden="true"></span>-->
+<!--            &nbsp; {{ abaPainel !== 5 ? 'E-mail Indicativo' : '' }}<strong *ngIf="abaPainel === 5">E-mail Indicativo</strong></a></li><br><br><br><br>-->
+
+          <!--<li><a><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> &nbsp; Planos a vencer</a></li>-->
+          <!--<li><a><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> &nbsp; Suporte</a></li>-->
+
+          <li (click)="abrirMenu('mostrar-conteudo')" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <a (mouseover)="desejaSair = true" (mouseleave)="desejaSair = false" style="cursor: pointer" (click)="logout()">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+            &nbsp;{{ !desejaSair ? 'Sair' : '' }}<strong *ngIf="desejaSair">Sair</strong></a></li>
+        </ul>
+
+      </div><!--/.nav-collapse -->
+
+    </div> <!-- .navbar -->
+  </div> <!-- .sidebar-nav -->
+</div>

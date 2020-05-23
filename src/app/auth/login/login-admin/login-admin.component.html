@@ -1,0 +1,46 @@
+
+<html lang="pt-br">
+<body class="login">
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="login-box">
+        <p>
+          <img src="/assets/img/cerealiza-logo-painel.png" alt=""
+               class="img-responsive">
+        </p>
+        <p>
+          <label> Usuário
+            <input [(ngModel)]="loginRequest.username"
+                   (keydown.enter)="login()"
+                   type="text">
+          </label>
+        </p>
+        <p>
+          <label> Senha
+            <input
+              [(ngModel)]="loginRequest.password"
+              (keydown.enter)="login()"
+              type="password">
+          </label>
+        </p>
+
+        <div *ngIf="erroNoLogin" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Erro:</span>
+          <b> Credenciais inválidas.</b>
+        </div>
+
+        <p class="text-center">
+          <button (click)="login()"
+                  (keydown.enter)="login()">{{ carregandoLogin ? 'CARREGANDO...' : 'ENTRAR' }}</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- .container-fluid -->
+</body>
+</html>

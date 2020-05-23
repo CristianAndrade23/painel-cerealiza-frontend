@@ -1,0 +1,162 @@
+<div class="actions" xmlns="http://www.w3.org/1999/html">
+  <h3><strong>Cadastro de usuários</strong></h3>
+
+  <button class="btn button to só oubtn btn-default" disabled style="cursor: not-allowed">
+    CADASTRAR NOVO USUÁRIO
+  </button>
+
+  <h3><strong>Lista de usuários</strong></h3>
+  <div class="list">
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="input-group">
+            <input
+                   id="responsivePesquisarGrupo"
+                   style="width: 300px;
+                   margin-bottom: 15px;
+                   margin-top: 15px"
+                   type="text"
+                   class="form-control"
+                   aria-label="basic-addon"
+                   placeholder="Pesquisar usuário..."
+                   [(ngModel)]="filtraPlano"
+                   [typeahead]="planoDoUsuario"
+                   [typeaheadScrollable]="true"
+                   (typeaheadOnSelect)="pesquisaPlano($event.item)"
+                   [typeaheadOptionsInScrollableView]="5"
+                   typeaheadOptionField="producer.fullName"
+                   [typeaheadWaitMs]="5"
+                   typeaheadMinLength="0"
+                   (keyup)="resetarBusca($event)">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-12" *ngIf="carregandoLista">
+      <span>Carregando lista...</span>
+    </div>
+
+    <div class="table-responsive" [ngSwitch]="aba" *ngIf="!carregandoLista">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Data início</th>
+            <th>Data fim</th>
+            <th>Qtd. Hectares</th>
+            <th>Valor pago</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody *ngSwitchCase="'home'">
+          <tr *ngFor="let plano of planoPagination">
+            <td>{{plano.producer.name}} {{plano.producer.lastName}}</td>
+            <td>{{plano.email}}</td>
+            <td>{{ formatData(plano.startDate) }}</td>
+            <td>{{ formatData(plano.endDate)}}</td>
+            <td>{{plano.quantityHectare}}</td>
+            <td>{{plano.amount}}</td>
+            <td *ngIf="plano.isActive">
+              <button class="btn btn-toggle active"
+                      (click)="modalDesativaPlano(desativa, plano.id, plano.producer.name,
+                       plano.producer.lastName)"></button>
+            </td>
+
+            <td *ngIf="!plano.isActive">
+              <button class="btn btn-toggle"
+                      (click)="modalAtivaPlano(ativa, plano.id, plano.producer.name,
+                       plano.producer.lastName)"></button>
+            </td>
+          </tr>
+        </tbody>
+
+
+
+        <tbody *ngSwitchCase="'planoSelecionado'">
+        <tr *ngFor="let plano of planoPesquisado">
+          <td>{{plano.producer.name}} {{plano.producer.lastName}}</td>
+          <td>{{plano.email}}</td>
+          <td>{{plano.startDate}}</td>
+          <td>{{plano.endDate}}</td>
+          <td>{{plano.quantityHectare}}</td>
+          <td>{{plano.amount}}</td>
+          <td *ngIf="plano.isActive">
+            <button class="btn btn-toggle active"
+                    (click)="modalDesativaPlano(desativa, plano.id, plano.producer.name,
+                     plano.producer.lastName)"></button>
+          </td>
+
+          <td *ngIf="!plano.isActive">
+            <button class="btn btn-toggle"
+                    (click)="modalAtivaPlano(ativa, plano.id, plano.producer.name,
+                     plano.producer.lastName)"></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <pagination
+    *ngIf="aba == 'home'"
+    [directionLinks]="true"
+    [totalItems]="planoDoUsuario.length"
+    [(ngModel)]="currentPage"
+    [maxSize]="maxSize"
+    previousText="Anterior"
+    nextText="Próximo"
+    [itemsPerPage]="itemsPerPage"
+    (pageChanged)="mudarPagina($event)">
+  </pagination>
+</div>
+
+
+<ng-template #ativa>
+  <div class="modal-header" style="background: white; color: #0f0f0f">
+    <h4 style="background: white; color: #4b4b4b" class="center">Deseja
+      <strong>ATIVAR</strong> o plano de {{recebeNomeUsuario}}?</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="ativaPlanoRef.hide()">
+      <span aria-hidden="true" style="color: #0f0f0f">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <button
+    type="button"
+    class="btn btn-success"
+    (click)="ativarPlano(recebePlanoId)"
+    style="margin-left: 60px">Ativar</button>
+
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="ativaPlanoRef.hide()"
+      style="margin-left: 200px">Fechar</button>
+  </div>
+</ng-template>
+
+<ng-template #desativa>
+  <div class="modal-header" style="background: white; color: #0f0f0f">
+    <h4 style="background: white; color: #4b4b4b" class="center">Deseja
+      <strong>DESATIVAR</strong> o plano de {{recebeNomeUsuario}}?</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="desativaPlanoRef.hide()">
+      <span aria-hidden="true" style="color: #0f0f0f">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="desativarPlano(recebePlanoId)"
+      style="margin-left: 60px">Desativar</button>
+
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="desativaPlanoRef.hide()"
+      style="margin-left: 200px">Fechar</button>
+  </div>
+</ng-template>

@@ -1,0 +1,135 @@
+<h3>{{produtor.producer.name}} {{produtor.producer.lastName}}</h3>
+<br>
+<h4><strong>Lavouras <span class="text-success">aptas</span></strong></h4><br>
+<div class="list" *ngFor="let prod of produtor.ableFarmings">
+    <ul class="list-group" id="blocolavoura">
+      <div class="row" id="responsiveBlocoProdutores">
+        <div class="col-xs-8">
+          <p><strong>{{prod.name}} -
+            {{prod.cultureType}}
+             {{prod.plantingYear}}
+            {{prod.harvestYear}}</strong></p>
+        </div>
+          <app-lavouras
+            [desabilitarCheckbox]="desabilitarCheckboxDasAptas"
+            [custoEstimado]="prod.estimatedCost"
+            [custoEfetivo]="prod.effectiveCost"
+            [lavouras]="prod"
+            (lavouraId)="recebeLavourasID($event)"
+            (lavouraNome)="recebeLavourasNome($event)"
+            (lavouraId)="recebeBloqueioBotao($event)">
+          </app-lavouras>
+          <hr style="margin: 3px">
+      </div>
+    </ul>
+</div>
+
+<span *ngIf="!produtor.ableFarmings">Este produtor não possui nenhuma lavoura apta</span><br><br>
+
+<hr style="margin: 6px">
+
+<div class="btn-group"
+     style="display: table;margin-right: auto;margin-left: auto;overflow: auto;"
+     role="group" aria-label="...">
+  <button
+    type="button"
+    class="btn btn-success center-block"
+    (click)="lavouraApta()"
+    [disabled]="checkDisabledPendentes()">
+    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Habilitar lavouras
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-danger center-block"
+    (click)="lavouraPendente()"
+    [disabled]="checkDisabledAptas()">
+    <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> Desabilitar lavouras
+  </button>
+</div>
+<hr style="margin: 6px">
+
+
+
+<h4><strong>Lavouras <span class="text-danger">não aptas</span></strong></h4><br>
+<div class="list" *ngFor="let prod of produtor.unableFarmings">
+  <ul class="list-group" id="blocolavoura">
+    <div class="row" id="responsiveBlocoProdutores">
+      <div class="col-xs-8">
+        <p><strong>{{prod.name}} -
+          {{prod.cultureType}}
+          {{prod.plantingYear}}
+          {{prod.harvestYear}}</strong></p>
+      </div>
+        <app-pendentes
+          [desabilitarCheckbox]="desabilitarCheckboxDasPendentes"
+          (lavouraId)="recebeBloqueioBotaoPendentes($event)"
+          [custoEstimado]="prod.estimatedCost"
+          [custoEfetivo]="prod.effectiveCost"
+          [lavouras]="prod"
+          (lavouraId)="recebeLavourasID($event)"
+          (lavouraNome)="recebeLavourasNome($event)">
+        </app-pendentes>
+        <hr style="margin: 3px">
+    </div>
+  </ul>
+
+</div>
+<span *ngIf="!produtor.unableFarmings">Este produtor não possui nenhuma lavoura pendente</span>
+
+
+<br/>
+
+
+
+<ng-template #template>
+  <div class="alert alert-success" id="modalResponsiveAvisoLavouraApta"
+       style="margin-bottom: 0">
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div *ngIf="nomeLavouraRecebido.length === 1">
+    <h4 >A lavoura:</h4>
+    <strong><p *ngFor="let nome of nomeLavouraRecebido"> - {{ nome }}</p></strong>
+    <p> Agora está apta a ser comparada!</p>
+    </div>
+
+    <div *ngIf="nomeLavouraRecebido.length > 1">
+      <h4 >As lavouras:</h4>
+      <strong><p *ngFor="let nome of nomeLavouraRecebido"> - {{ nome }}</p></strong>
+      <p> Agora estão aptas a serem comparadas!</p>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #template2>
+  <div class="alert alert-danger" id="modalResponsiveAvisoLavouraApta"
+       style="margin-bottom: 0">
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div *ngIf="nomeLavouraRecebido.length === 1">
+      <h4 >A lavoura:</h4>
+      <strong><p *ngFor="let nome of nomeLavouraRecebido"> - {{ nome }}</p></strong>
+      <p> Não está mais apta a ser comparada!</p>
+    </div>
+
+    <div *ngIf="nomeLavouraRecebido.length > 1">
+      <h4 >As lavouras:</h4>
+      <strong><p *ngFor="let nome of nomeLavouraRecebido"> - {{ nome }}</p></strong>
+      <p> Não estão mais aptas a serem comparadas!!</p>
+    </div>
+
+  </div>
+</ng-template>

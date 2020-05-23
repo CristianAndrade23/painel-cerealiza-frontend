@@ -1,0 +1,384 @@
+h1, h2{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+a{
+  font-weight: 700;
+  color: #58b957;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #3eea5b;
+}
+
+a.action{
+  color: #222;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+a.action:hover{
+  background: #ddd;
+}
+
+select{
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-weight: 100;
+}
+
+button{
+  border: 0;
+  background: #58b957;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+button:hover{
+  background: #3eea5b;
+}
+
+.input-group button{
+  margin: 0;
+}
+
+.modal input{
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.tag-lavoura{
+  width: 70%;
+  padding: 5px;
+  background: #ddd;
+  border-radius: 4px;
+  margin: 15px 0 5px 15px;
+  float: left;
+}
+
+.tag-lavoura .glyphicon{
+  float: right;
+  cursor: pointer;
+}
+
+.modal-header{
+  background: white;
+}
+.modal-header > *{
+  background: white;
+  color: black;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+.modal-header > button.close {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-footer{
+  padding: 0 15px;
+}
+
+.modal-header > * {
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+}
+
+.modal-footer .close-modal{
+  background: #fff;
+  color: #333;
+  border: 1px solid #aaa;
+}
+
+.modal-footer .close-modal:hover{
+  background: #ddd;
+}
+
+/*.pagination {*/
+  /*display: inline-block;*/
+  /*padding-left: 0;*/
+  /*margin: 20px 0;*/
+  /*border-radius: 4px;*/
+/*}*/
+/*.pagination > li {*/
+  /*display: inline;*/
+/*}*/
+/*.pagination > li > a,*/
+/*.pagination > li > span {*/
+  /*position: relative;*/
+  /*float: left;*/
+  /*padding: 6px 12px;*/
+  /*margin-left: -1px;*/
+  /*line-height: 1.42857143;*/
+  /*color: #3eea5b;*/
+  /*text-decoration: none;*/
+  /*background-color: #fff;*/
+  /*border: 1px solid #ddd;*/
+/*}*/
+/*.pagination > li:first-child > a,*/
+/*.pagination > li:first-child > span {*/
+  /*margin-left: 0;*/
+  /*border-top-left-radius: 4px;*/
+  /*border-bottom-left-radius: 4px;*/
+/*}*/
+/*.pagination > li:last-child > a,*/
+/*.pagination > li:last-child > span {*/
+  /*border-top-right-radius: 4px;*/
+  /*border-bottom-right-radius: 4px;*/
+/*}*/
+/*.pagination > li > a:hover,*/
+/*.pagination > li > span:hover,*/
+/*.pagination > li > a:focus,*/
+/*.pagination > li > span:focus {*/
+  /*z-index: 2;*/
+  /*color: #3eea5b;*/
+  /*background-color: #eee;*/
+  /*border-color: #ddd;*/
+/*}*/
+/*.pagination > .active > a,*/
+/*.pagination > .active > span,*/
+/*.pagination > .active > a:hover,*/
+/*.pagination > .active > span:hover,*/
+/*.pagination > .active > a:focus,*/
+/*.pagination > .active > span:focus {*/
+  /*z-index: 3;*/
+  /*color: #fff;*/
+  /*cursor: default;*/
+  /*background-color: #3eea5b;*/
+  /*border-color: #3eea5b;*/
+/*}*/
+/*.pagination > .disabled > span,*/
+/*.pagination > .disabled > span:hover,*/
+/*.pagination > .disabled > span:focus,*/
+/*.pagination > .disabled > a,*/
+/*.pagination > .disabled > a:hover,*/
+/*.pagination > .disabled > a:focus {*/
+  /*color: #777;*/
+  /*cursor: not-allowed;*/
+  /*background-color: #fff;*/
+  /*border-color: #ddd;*/
+/*}*/
+
+/*Galaxy S5 (de pé)*/
+@media only screen and (width: 360px) {
+  #tagLavouraResponsive {
+    width: 91%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 91%;
+  }
+
+  #responsiveAviso {
+    width: 91%;
+  }
+}
+
+@media only screen and (width: 411px) {
+  #tagLavouraResponsive {
+    width: 91%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 91%;
+  }
+
+  #responsiveAviso {
+    width: 91%;
+  }
+}
+
+/*Pixel 2 (deitado)*/
+@media only screen and (width: 731px) {
+  #tagLavouraResponsive {
+    width: 95%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 95%;
+  }
+
+  #responsiveAviso {
+    width: 95%;
+  }
+}
+
+/*Pixel 2 XL (de pé)*/
+@media only screen and (width: 411px) {
+  #tagLavouraResponsive {
+    width: 91%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 91%;
+  }
+
+  #responsiveAviso {
+    width: 91%;
+  }
+}
+
+/*Iphone5/SE (de pé)*/
+@media only screen and (width: 320px) {
+  #tagLavouraResponsive {
+    width: 90%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 90%;
+  }
+
+  #responsiveAviso {
+    width: 90%;
+  }
+}
+
+@media only screen and (width: 568px) {
+  #tagLavouraResponsive {
+    width: 90%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 94%;
+  }
+
+  #responsiveAviso {
+    width: 94%;
+  }
+}
+
+/*Iphone 6/7/8 (de pé)*/
+@media only screen and (width: 375px) {
+  #tagLavouraResponsive {
+    width: 91%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 91%;
+  }
+
+  #responsiveAviso {
+    width: 91%;
+  }
+}
+
+/*Iphone 6/7/8 (deitado)*/
+@media only screen and (width: 667px) {
+  #responsiveAlertaErro {
+    width: 95%;
+  }
+
+  #responsiveAviso {
+    width: 95%;
+  }
+}
+
+/*Iphone 6/7/8 Plus (de pé)*/
+@media only screen and (width: 414px) {
+  #tagLavouraResponsive {
+    width: 92%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 92%;
+  }
+
+  #responsiveAviso {
+    width: 92%;
+  }
+}
+
+/*Iphone 6/7/8 Plus (deitado)*/
+@media only screen and (width: 736px) {
+
+  #responsiveAlertaErro {
+    width: 95%;
+  }
+
+  #responsiveAviso {
+    width: 95%;
+  }
+}
+
+/*Iphone X (de pé)*/
+@media only screen and (width: 375px) {
+
+  #tagLavouraResponsive {
+    width: 91%;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 4px;
+    margin: 15px 100px 5px 15px;
+    float: left;
+  }
+
+  #responsiveAlertaErro {
+    width: 91%;
+  }
+  #responsiveAviso {
+    width: 91%;
+  }
+}

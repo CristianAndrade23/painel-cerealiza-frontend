@@ -1,0 +1,143 @@
+h1, h2{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+button{
+  border: 0;
+  background: #58b957;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  font-weight: 700;
+  margin: 15px 0;
+  outline: none;
+}
+
+button:hover{
+  background: #3eea5b;
+}
+
+.btn-src-email-indicativo{
+  padding: 7.5px 12px;
+  border-left: white;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 0px;
+  border-radius: 0px 4px 4px 0px
+}
+
+.btn-src-email-indicativo:hover{
+  padding: 7.5px 12px;
+  border-left: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 0px;
+  border-radius: 0px 4px 4px 0px
+}
+
+.action{
+  color: #222;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+
+.modal-header{
+  background: white;
+}
+
+.modal-header > *{
+  background: white;
+  color: black;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+.modal-header > button.close {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-footer{
+  padding: 0 15px;
+}
+
+.modal-footer .close-modal{
+  background: #fff;
+  color: #333;
+  border: 1px solid #aaa;
+}
+
+.modal-footer .close-modal:hover{
+  background: #ddd;
+}
+
+.padding-div-select{
+  padding: 0px 18px;
+}
+
+.lav-nao-selecionada{
+  background: #eeeeee;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.lav-selecionada{
+  background: #57b957;
+  padding: 5px 0px;
+  color: white;
+  cursor: pointer;
+}
+
+.button-close-modal{
+  margin: 0px 5px;
+  background: white;
+  color: #555;
+  border: solid 1px #555;
+}
+
+.button-close-modal:hover{
+  margin: 0px 5px;
+  background: #555;
+  color: white;
+  border: solid 1px white;
+}
+
+@media screen and (max-width: 991px) {
+  .width-select-responsive{
+    width: 30%;
+    margin-top: 5px;
+  }
+
+  .padding-div-select{
+    padding: 0px;
+  }
+
+  .padding-top-input-pesquisa{
+    margin-top: 15px;
+  }
+
+  .scroll-table{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    white-space: nowrap;
+  }
+
+  .padding-responsive{
+    padding: 10px 0px;
+  }
+}
